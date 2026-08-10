@@ -1,0 +1,31 @@
+<aside class="blog-sidebar">
+ <div class="blog-sidebar-profile">
+  <div class="blog-sidebar-avatar" style="background-image: url('<%= theme.logo %>');"></div>
+  <div class="blog-sidebar-nickname"><%= theme.nickname %></div>
+  <div class="blog-sidebar-motto"><%= theme.motto %></div>
+  <% if (theme.social) { %>
+  <div class="blog-sidebar-social">
+   <% for (a in theme.social) { %>
+   <a href="<%= theme.social[a][0] %>" target="_blank" mdui-tooltip="{content: '<%= theme.social[a][1] %>'}"><span class="<%= theme.social[a][2] %>"></span></a>
+   <% } %>
+  </div>
+  <% } %>
+  <hr class="blog-sidebar-divider" />
+ </div>
+ <div class="mdui-list" mdui-collapse="{accordion: true}">
+  <% for (c in theme.sidebar) { %>
+  <div class="mdui-collapse-item">
+   <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+    <i class="mdui-list-item-icon mdui-icon material-icons <%= theme.sidebar_color[c][1] %>"><%= theme.sidebar_color[c][0] %></i>
+    <div class="mdui-list-item-content"><%= c %></div>
+    <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+   </div>
+   <% for (d in theme.sidebar[c]) { %>
+   <div class="mdui-collapse-item-body mdui-list">
+    <a href="<%= theme.sidebar[c][d][0] %>" target="_blank" mdui-tooltip="{content: '<%= theme.sidebar[c][d][1] %>'}" class="mdui-list-item mdui-ripple"><%= d %></a>
+   </div>
+   <% } %>
+  </div>
+  <% } %>
+ </div>
+</aside>

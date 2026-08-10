@@ -12,7 +12,7 @@ language: zh-CN                          # 网站语言，en英文，zh-CN简体
 timezone: ''                              # 时区，留空自动识别；填写Asia/Shanghai代表中国时区
 
 # URL 【网址与文章链接规则】
-url: http://example.com                  # 网站最终访问域名，部署上线后务必修改为真实网址
+url: https://xiaomo477.pages.dev         # 网站最终访问域名，部署上线后务必修改为真实网址
 permalink: :year/:month/:day/:title/     # 文章永久链接格式
 permalink_defaults:                      # 永久链接默认参数，一般无需填写
 pretty_urls:
