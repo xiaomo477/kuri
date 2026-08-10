@@ -1,0 +1,146 @@
+# kuri Theme Config @ version 1.0.0
+# website: https://kuri.ink | cl@kuri.ink
+
+# Yourself / 个人信息
+nickname: xiaomo的小破站                  # 侧边栏显示昵称
+motto: 愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。 # 个人简介、座右铭
+logo: /images/dog.jpg                     # 头像图片地址
+github: https://github.com/xiaomo477      # Github主页链接
+background:                               # 背景图片，支持多张随机切换
+  - https://api.ee123.net/img/bingimg/dayimg.jpg
+iconfont: /css/iconfont.css               # 图标样式文件路径
+
+# SEO / 搜索引擎优化
+fav: /images/dog.jpg                      # 网站小图标 favicon
+
+sidebar:
+  首页:
+    首页:
+      - /
+      - 前往首页
+  工具:
+    GitHub:
+      - https://github.com
+      - Github代码仓库
+    豆包:
+      - https://www.doubao.com
+      - 访问豆包AI
+    DeepSeek:
+      - https://www.deepseek.com
+      - 前往DeepSeek
+    千问:
+      - https://www.qianwen.com/
+      - 访问千问
+    openai:
+      - https://openai.com/zh-Hans-CN/
+      - 访问OpenAI
+    抖音:
+      - https://www.douyin.com
+      - 抖音官网
+    B站:
+      - https://www.bilibili.com
+      - Bilibili哔哩哔哩
+    中科大测速:
+      - https://test.ustc.edu.cn/
+      - 中科大网络测速
+    Ollama:
+      - https://ollama.com
+      - 本地大模型Ollama
+    Git安装:
+      - https://git-scm.com/install/windows
+      - Windows Git下载
+    Node安装:
+      - https://nodejs.org/zh-cn/download
+      - Node.js下载
+    VS Code:
+      - https://code.visualstudio.com/
+      - VS代码编辑器
+    Mineradio:
+      - https://mineradio.cn/
+      - Mineradio音乐电台
+    傲梅分区助手:
+      - https://www.disktool.cn
+      - 磁盘分区工具
+    7-Zip:
+      - https://www.7-zip.org
+      - 开源压缩软件
+  资源分享:
+    博客园:
+      - https://www.cnblogs.com
+      - 博客园社区
+    CSDN:
+      - https://www.csdn.net
+      - CSDN技术社区
+    清华镜像源:
+      - https://mirrors.tuna.tsinghua.edu.cn/
+      - 清华大学镜像站
+    MSDN:
+      - https://msdn.itellyou.cn/
+      - MSDN系统镜像
+    30aitool:
+      - https://www.30aitool.com
+      - 一站式免费在线工具合集
+    七味电影:
+      - https://www.qmp4.com/vt/1.html
+      - 视频观看
+    动漫共和国:
+      - https://www.dmghg1.com/
+      - 动漫观看
+    Iconfont:
+      - https://www.iconfont.cn/
+      - 阿里矢量图标素材库
+    Hexo:
+      - https://hexo.io/zh-cn/
+      - 静态博客框架
+
+sidebar_color:
+  首页:
+    - home
+    - mdui-text-color-red
+  工具:
+    - near_me
+    - mdui-text-color-blue
+  资源分享:
+    - share
+    - mdui-text-color-orange
+
+
+
+# Header / 页眉信息
+chizaobook: false                         # 是否开启页眉摛藻好句
+
+# Social / 首页Hero区域底部社交按钮
+social:
+  bilibili:
+    - https://space.bilibili.com/3690998966257910
+    - Bilibili
+    - iconfont iconbili
+  github:
+    - https://github.com/xiaomo477
+    - Github
+    - iconfont icongithub
+  blog:
+    - /archives                         # 博客归档跳转地址
+    - 博客归档
+    - iconfont iconblog
+  friendlink:
+    - /friends                            # 友情链接页面地址
+    - 友情链接
+    - iconfont iconlink
+
+# Footer / 页脚信息
+author: xiaomo                            # 版权署名
+remark: '欢迎访问我的小破站'               # 页脚备注文字
+regist: ''                                # 备案号，无则留空
+
+# tools / 第三方工具
+analysis:
+  platform: 51.la
+  id:
+  cd:
+aplayer:
+  enable: true                            # 是否开启音乐播放器
+  platform: netease                       # 音乐平台
+  type: playlist                          # 歌单类型
+  id: 164238075                           # 歌单ID
+  fixed: true                             # 是否固定播放器到底部

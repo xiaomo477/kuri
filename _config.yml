@@ -1,0 +1,96 @@
+# Hexo Configuration 【Hexo全局配置文件】
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site 【网站基础信息设置】
+title: xiaomo的小破站                     # 网站标题，浏览器标签、首页展示名称
+subtitle: ''                             # 网站副标题，不需要可留空
+description: '博客'                       # 网站描述，用于搜索引擎收录
+keywords:                                # 网站关键词，多个关键词用英文逗号分隔
+author: xiaomo                           # 博主名称
+language: zh-CN                          # 网站语言，en英文，zh-CN简体中文
+timezone: ''                              # 时区，留空自动识别；填写Asia/Shanghai代表中国时区
+
+# URL 【网址与文章链接规则】
+url: http://example.com                  # 网站最终访问域名，部署上线后务必修改为真实网址
+permalink: :year/:month/:day/:title/     # 文章永久链接格式
+permalink_defaults:                      # 永久链接默认参数，一般无需填写
+pretty_urls:
+  trailing_index: true                   # 是否保留链接末尾index.html，false自动移除
+  trailing_html: true                    # 是否保留链接末尾.html，false自动移除
+
+# Directory 【文件夹目录配置，不要随意修改】
+source_dir: source                       # 存放文章、页面、资源的源文件夹
+public_dir: public                       # hexo g生成静态网页的输出文件夹
+tag_dir: tags                            # 标签页面访问路径
+archive_dir: archives                    # 归档页面访问路径（博客双栏归档页）
+category_dir: categories                 # 分类页面访问路径
+code_dir: downloads/code                 # 嵌入代码文件存放目录
+i18n_dir: :lang                          # 多语言页面目录
+skip_render:                             # 需要跳过渲染的文件/路径，一行填写一个
+
+# Writing 【文章撰写相关配置】
+new_post_name: :title.md                 # 新建文章默认文件名格式
+default_layout: post                     # 新建文章默认布局模板post（文章）
+titlecase: false                         # 是否自动把标题转为首字母大写格式
+external_link:
+  enable: true                           # 外部链接是否在新标签页打开
+  field: site                            # 作用范围：site全站 / post仅文章内
+  exclude: ''                             # 不需要新窗口打开的链接
+filename_case: 0                         # 文件名大小写转换 0关闭 1小写 2大写
+render_drafts: false                     # 是否渲染草稿
+post_asset_folder: false                 # 是否开启文章资源文件夹
+relative_link: false                     # 是否使用相对链接，不推荐开启
+future: true                             # 是否显示未来时间发布的文章
+syntax_highlighter: highlight.js         # 代码高亮渲染器
+highlight:
+  line_number: true                      # 代码块是否显示行号
+  auto_detect: false                     # 是否自动识别代码语言
+  tab_replace: ''                        # Tab空格替换字符
+  wrap: true                             # 代码过长自动换行
+  hljs: false                            # 是否启用hljs样式渲染
+prismjs:
+  preprocess: true                       # prismjs是否预处理代码
+  line_number: true                      # prism代码行号开关
+  tab_replace: ''                        # Tab替换字符
+
+# Home page setting 【首页分页配置】
+index_generator:
+  path: ''                               # 首页访问路径，默认根目录
+  per_page: 10                           # 首页每页展示文章数量
+  order_by: -date                        # 文章排序规则，-date按发布时间倒序
+
+# Category & Tag 【分类与标签基础设置】
+default_category: uncategorized          # 未设置分类的文章默认分类名
+category_map:                            # 分类别名映射
+tag_map:                                 # 标签别名映射
+
+# Metadata elements 【网页元标签】
+meta_generator: true                     # 是否在页面标注Hexo生成标识
+
+# Date / Time format 【日期时间显示格式】
+date_format: YYYY-MM-DD                  # 日期显示格式：年-月-日
+time_format: HH:mm:ss                   # 时间显示格式：时:分:秒
+updated_option: 'mtime'                  # 文章更新时间获取方式
+
+# Pagination 【全局分页设置】
+per_page: 10                             # 所有分页页面默认每页文章数量
+pagination_dir: page                     # 分页访问路径前缀
+
+# Include / Exclude file(s) 【文件包含与排除】
+include:                                 # 强制参与渲染的文件路径
+exclude:                                 # 排除渲染的文件路径
+ignore:                                  # 完全忽略、不复制到public的文件
+
+# Extensions 【扩展：插件与主题】
+theme: kuri                              # 当前启用主题名称
+
+# Deployment 【一键部署配置】
+deploy:
+  type: ''                                # 部署类型，暂时为空
+
+# Kuri主题专属控制（仅此处设置home，主题配置内不要重复写）
+kuri:
+  home: hero
+  # 开启独立文章列表页面路由
+  archive_page: true
