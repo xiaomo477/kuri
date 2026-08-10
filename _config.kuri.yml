@@ -150,12 +150,13 @@ aplayer:
 comment:
   enable: true                            # 是否开启评论
   platform: giscus                        # 评论平台
-  repo: xiaomo477/kuri                    # GitHub 仓库，格式 owner/repo
-  repo_id: 1329490463                     # giscus.app 生成的 repo id
-  category: Announcements                 # Discussions 分类名称
-  category_id: DIC_kwDOTz5qH84DDEkw       # giscus.app 生成的 category id
-  mapping: pathname                       # 评论与文章页面的关联方式
+  repo: xiaomo477/blog-comments           # GitHub 评论仓库
+  repo_id: R_kgDOT0TNEA
+  category: General                       # 使用普通General分类，禁止Announcements
+  category_id: DIC_kwDOT0TNEM4DDEwD
+  mapping: pathname                       # 页面映射方式
   reactions: true                         # 是否显示表情回应按钮
-  input_position: top                     # 评论输入框位置：top / bottom
-  theme: light                            # 评论主题：light / dark 等
+  input_position: bottom                  # 输入框放底部，和你的脚本保持一致
+  theme: preferred_color_scheme           # 跟随系统明暗主题
   lang: zh-CN                             # 评论界面语言
+
