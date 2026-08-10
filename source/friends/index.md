@@ -13,3 +13,9 @@ layout: friends
 - 链接：https://xiaomo477.pages.dev/
 - 头像：https://xiaomo477.pages.dev/images/dog.jpg
 - 简介：愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。
+
+friends:
+  - name: UpXuu's blog
+    link: https://upxuu.com
+    avatar: https://upxuu.com/images/me.jpg
+    desc: 逐光而上
