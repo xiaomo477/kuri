@@ -16,3 +16,4 @@
   <% if (page.next) { %><a class="post-nav-next" href="<%= url_for(page.next.path) %>"><%= page.next.title %> →</a><% } %>
  </nav>
 </article>
+<%- partial('_partial/comments') %>

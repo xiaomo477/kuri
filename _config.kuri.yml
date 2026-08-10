@@ -144,3 +144,18 @@ aplayer:
   type: playlist                          # 歌单类型
   id: 164238075                           # 歌单ID
   fixed: true                             # 是否固定播放器到底部
+
+# Comment / 评论系统 (Giscus)
+# 先在 https://giscus.app 完成配置，把生成的参数填到下面
+comment:
+  enable: true                            # 是否开启评论
+  platform: giscus                        # 评论平台
+  repo: xiaomo477/kuri                    # GitHub 仓库，格式 owner/repo
+  repo_id: 1329490463                     # giscus.app 生成的 repo id
+  category: Announcements                 # Discussions 分类名称
+  category_id: DIC_kwDOTz5qH84DDEkw       # giscus.app 生成的 category id
+  mapping: pathname                       # 评论与文章页面的关联方式
+  reactions: true                         # 是否显示表情回应按钮
+  input_position: top                     # 评论输入框位置：top / bottom
+  theme: light                            # 评论主题：light / dark 等
+  lang: zh-CN                             # 评论界面语言

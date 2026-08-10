@@ -1,0 +1,20 @@
+<% if (theme.comment && theme.comment.enable && theme.comment.platform === 'giscus') { %>
+<div id="comments" class="post-comments">
+  <h2 class="post-comments-title">评论</h2>
+  <script src="https://giscus.app/client.js"
+    data-repo="<%= theme.comment.repo %>"
+    data-repo-id="<%= theme.comment.repo_id %>"
+    data-category="<%= theme.comment.category %>"
+    data-category-id="<%= theme.comment.category_id %>"
+    data-mapping="<%= theme.comment.mapping || 'pathname' %>"
+    data-strict="0"
+    data-reactions-enabled="<%= theme.comment.reactions ? '1' : '0' %>"
+    data-emit-metadata="0"
+    data-input-position="<%= theme.comment.input_position || 'top' %>"
+    data-theme="<%= theme.comment.theme || 'light' %>"
+    data-lang="<%= theme.comment.lang || 'zh-CN' %>"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+<% } %>
