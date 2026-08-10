@@ -121,11 +121,11 @@ social:
     - iconfont icongithub
   blog:
     - /archives                         # 博客归档跳转地址
-    - 博客归档
+    - 博客
     - iconfont iconblog
   friendlink:
     - /friends                            # 友情链接页面地址
-    - 友情链接
+    - 友链
     - iconfont iconlink
 
 # Footer / 页脚信息
