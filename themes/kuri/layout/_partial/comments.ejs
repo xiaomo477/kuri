@@ -3,9 +3,9 @@
   <h2 class="post-comments-title">评论</h2>
   <div id="waline"></div>
   <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-  <script src="https://unpkg.com/@waline/client@v3/dist/waline.js"></script>
-  <script>
-    Waline.init({
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
       el: '#waline',
       serverURL: '<%= theme.comment.server_url %>',
       lang: '<%= theme.comment.lang || 'zh-CN' %>',
