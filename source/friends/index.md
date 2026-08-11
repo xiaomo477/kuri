@@ -13,3 +13,5 @@ layout: friends
 - 链接：https://xiaomoo.top/
 - 头像：https://xiaomoo.top/images/dog.jpg
 - 简介：愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。
+
+###   友情链接
