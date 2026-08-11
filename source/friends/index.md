@@ -10,6 +10,6 @@ layout: friends
 
 ### 📎 本站信息（直接复制添加）
 - 名称：xiaomo的小破站
-- 链接：https://xiaomo477.pages.dev/
-- 头像：https://xiaomo477.pages.dev/images/dog.jpg
+- 链接：https://xiaomoo.top/
+- 头像：https://xiaomoo.top/images/dog.jpg
 - 简介：愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。
