@@ -150,7 +150,7 @@ aplayer:
 comment:
   enable: true                            # 是否开启评论
   platform: waline                        # 评论平台
-  server_url: https://waline.xiaomo477.workers.dev       # Waline 后端地址（必填，改成你自己的）
+  server_url: https://waline.xiaomoo.top                 # Waline 后端地址（必填，改成你自己的）
   lang: zh-CN                             # 评论界面语言
   dark: auto                              # 深色模式：auto 跟随系统
   pageview: false                         # 是否显示文章阅读量
