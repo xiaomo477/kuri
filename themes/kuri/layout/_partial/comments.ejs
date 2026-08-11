@@ -1,20 +1,18 @@
-<% if (theme.comment && theme.comment.enable && theme.comment.platform === 'giscus') { %>
+<% if (theme.comment && theme.comment.enable && theme.comment.platform === 'waline') { %>
 <div id="comments" class="post-comments">
   <h2 class="post-comments-title">评论</h2>
-  <script src="https://giscus.app/client.js"
-    data-repo="<%= theme.comment.repo %>"
-    data-repo-id="<%= theme.comment.repo_id %>"
-    data-category="<%= theme.comment.category %>"
-    data-category-id="<%= theme.comment.category_id %>"
-    data-mapping="<%= theme.comment.mapping || 'pathname' %>"
-    data-strict="0"
-    data-reactions-enabled="<%= theme.comment.reactions ? '1' : '0' %>"
-    data-emit-metadata="0"
-    data-input-position="<%= theme.comment.input_position || 'top' %>"
-    data-theme="<%= theme.comment.theme || 'light' %>"
-    data-lang="<%= theme.comment.lang || 'zh-CN' %>"
-    crossorigin="anonymous"
-    async>
+  <div id="waline"></div>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <script src="https://unpkg.com/@waline/client@v3/dist/waline.js"></script>
+  <script>
+    Waline.init({
+      el: '#waline',
+      serverURL: '<%= theme.comment.server_url %>',
+      lang: '<%= theme.comment.lang || 'zh-CN' %>',
+      dark: '<%= theme.comment.dark || 'auto' %>',
+      pageview: <%= theme.comment.pageview ? 'true' : 'false' %><% if (theme.comment.emoji && theme.comment.emoji.length) { %>,
+      emoji: <%- JSON.stringify(theme.comment.emoji) %><% } %>
+    });
   </script>
 </div>
 <% } %>

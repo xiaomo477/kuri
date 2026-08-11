@@ -145,18 +145,20 @@ aplayer:
   id: 164238075                           # 歌单ID
   fixed: true                             # 是否固定播放器到底部
 
-# Comment / 评论系统 (Giscus)
-# 先在 https://giscus.app 完成配置，把生成的参数填到下面
+# Comment / 评论系统 (Waline)
+# 先部署 Waline 后端（Vercel / Cloudflare Workers 等），把服务地址填到 server_url
 comment:
   enable: true                            # 是否开启评论
-  platform: giscus                        # 评论平台
-  repo: xiaomo477/blog-comments           # GitHub 评论仓库
-  repo_id: R_kgDOT0TNEA
-  category: General                       # 使用普通General分类，禁止Announcements
-  category_id: DIC_kwDOT0TNEM4DDEwD
-  mapping: pathname                       # 页面映射方式
-  reactions: true                         # 是否显示表情回应按钮
-  input_position: bottom                  # 输入框放底部，和你的脚本保持一致
-  theme: preferred_color_scheme           # 跟随系统明暗主题
+  platform: waline                        # 评论平台
+  server_url: https://waline.xiaomo477.workers.dev       # Waline 后端地址（必填，改成你自己的）
   lang: zh-CN                             # 评论界面语言
+  dark: auto                              # 深色模式：auto 跟随系统
+  pageview: false                         # 是否显示文章阅读量
+  emoji:                                  # 自定义表情包（可选）
+    - https://unpkg.com/@waline/emojis@1.2.0/weibo
 
+friends:
+  - name: UpXuu's blog
+    link: https://upxuu.com
+    avatar: https://upxuu.com/images/me.jpg
+    desc: 逐光而上
