@@ -44,8 +44,8 @@ relative_link: false                     # 是否使用相对链接，不推荐�
 future: true                             # 是否显示未来时间发布的文章
 syntax_highlighter: highlight.js         # 代码高亮渲染器
 highlight:
-  line_number: true                      # 代码块是否显示行号
-  auto_detect: false                     # 是否自动识别代码语言
+  line_number: false                     # 代码块是否显示行号
+  auto_detect: true                     # 是否自动识别代码语言
   tab_replace: ''                        # Tab空格替换字符
   wrap: true                             # 代码过长自动换行
   hljs: false                            # 是否启用hljs样式渲染

@@ -1,6 +1,6 @@
 # kuri Theme Config @ version 1.0.0
 # website: https://kuri.ink | cl@kuri.ink
-
+  
 # Yourself / 个人信息
 nickname: xiaomo的小破站                  # 侧边栏显示昵称
 motto: 愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。 # 个人简介、座右铭
@@ -162,3 +162,5 @@ friends:
     link: https://upxuu.com
     avatar: https://upxuu.com/images/me.jpg
     desc: 逐光而上
+
+
