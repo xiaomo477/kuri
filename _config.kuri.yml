@@ -18,6 +18,12 @@ sidebar:
     首页:
       - /
       - 前往首页
+    博客:
+      - /archives
+      - 博客文章列表
+    友链:
+      - /friends
+      - 友情链接
   工具:
     GitHub:
       - https://github.com
