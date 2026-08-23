@@ -64,59 +64,76 @@
    </div>
 
 <script>
-  // 代码块复制按钮（兼容 figure.highlight 和裸 pre 两种结构）
-  function initCopyButtons() {
-    var targets = document.querySelectorAll('.post-content figure.highlight, .post-content pre');
-    targets.forEach(function(host) {
-      if (host.querySelector(':scope > .copy-btn')) return; // 已挂载
+  // 代码块复制按钮（兼容 figure.highlight + 裸 pre，避免重复挂载）
+  (function() {
+    var COPY_SVG = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+    var CHECK_SVG = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    function attachBtn(host) {
+      if (host.querySelector(':scope > .copy-btn')) return;
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'copy-btn';
-      btn.textContent = '复制';
+      btn.innerHTML = COPY_SVG;
       btn.title = '复制代码';
+
       btn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         var codeCell = host.querySelector('td.code') || host;
         var codeEl = codeCell.querySelector('pre code') || codeCell.querySelector('pre') || codeCell;
         var text = (codeEl.innerText || codeEl.textContent || '').replace(/\u00A0/g, ' ');
-        var done = function() {
-          btn.textContent = '已复制';
+
+        var onDone = function() {
           btn.classList.add('copied');
+          btn.innerHTML = CHECK_SVG;
           setTimeout(function() {
-            btn.textContent = '复制';
             btn.classList.remove('copied');
+            btn.innerHTML = COPY_SVG;
           }, 1500);
         };
+
         if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text).then(done, function() {
+          navigator.clipboard.writeText(text).then(onDone, function() {
             fallbackCopy(text);
-            done();
+            onDone();
           });
         } else {
           fallbackCopy(text);
-          done();
+          onDone();
         }
       });
+
       host.appendChild(btn);
-    });
-  }
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.top = '-9999px';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCopyButtons);
-  } else {
-    initCopyButtons();
-  }
+    }
+
+    function initCopyButtons() {
+      // 1. 给 figure.highlight 挂载（hexo 默认高亮结构）
+      document.querySelectorAll('.post-content figure.highlight').forEach(attachBtn);
+      // 2. 给裸 pre 挂载（跳过已在 figure.highlight 内部的 pre）
+      document.querySelectorAll('.post-content pre').forEach(function(pre) {
+        if (pre.closest('figure.highlight')) return;
+        attachBtn(pre);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCopyButtons);
+    } else {
+      initCopyButtons();
+    }
+  })();
 
   // 返回顶部
   (function() {

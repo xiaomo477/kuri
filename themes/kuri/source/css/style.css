@@ -559,43 +559,62 @@ hr {
 
 .copy-btn {
 	position: absolute;
-	top: 6px;
-	right: 6px;
-	padding: 3px 10px;
-	font-size: 12px;
-	color: #fff;
-	background: rgba(102, 204, 255, 0.85);
-	border: 1px solid rgba(102, 204, 255, 0.95);
-	border-radius: 4px;
+	top: 10px;
+	right: 10px;
+	width: 32px;
+	height: 32px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 8px;
 	cursor: pointer;
-	opacity: 0.85;
-	transition: opacity 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+	color: rgba(255, 255, 255, 0.55);
 	-webkit-user-select: none;
 	user-select: none;
 	z-index: 99;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 	font-family: inherit;
-	line-height: 1.4;
 }
 
-.post-content figure.highlight:hover .copy-btn,
-.post-content pre:hover .copy-btn {
-	opacity: 1;
+.copy-btn svg {
+	width: 15px;
+	height: 15px;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	stroke: currentColor;
+	transition: transform 0.2s;
 }
 
 .copy-btn:hover {
-	background: #66CCFF;
+	background: rgba(102, 204, 255, 0.18);
+	border-color: rgba(102, 204, 255, 0.45);
+	color: #66CCFF;
 	transform: translateY(-1px);
 }
 
+.copy-btn:hover svg {
+	transform: scale(1.08);
+}
+
 .copy-btn:active {
-	transform: translateY(0);
+	transform: translateY(0) scale(0.96);
 }
 
 .copy-btn.copied {
-	background: rgba(29, 158, 117, 0.85);
-	border-color: rgba(29, 158, 117, 0.95);
-	color: #fff;
-	opacity: 1;
+	background: rgba(29, 158, 117, 0.18);
+	border-color: rgba(29, 158, 117, 0.45);
+	color: #1D9E75;
+}
+
+.copy-btn.copied svg {
+	transform: scale(1);
 }
 
 /* ===== 返回顶部按钮 ===== */
