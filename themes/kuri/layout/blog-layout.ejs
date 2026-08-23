@@ -55,6 +55,85 @@
       <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
       <script>LA.init({id: "<%= theme.analysis.id %>",ck: "<%= theme.analysis.cd %>"})</script>
    <% } %>
+
+   <!-- 返回顶部按钮 -->
+   <div class="back-to-top" id="backToTop" title="返回顶部">
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+       <path d="M12 19V5M5 12l7-7 7 7"/>
+     </svg>
+   </div>
+
+<script>
+  // 代码块复制按钮（兼容 figure.highlight 和裸 pre 两种结构）
+  function initCopyButtons() {
+    var targets = document.querySelectorAll('.post-content figure.highlight, .post-content pre');
+    targets.forEach(function(host) {
+      if (host.querySelector(':scope > .copy-btn')) return; // 已挂载
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.title = '复制代码';
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var codeCell = host.querySelector('td.code') || host;
+        var codeEl = codeCell.querySelector('pre code') || codeCell.querySelector('pre') || codeCell;
+        var text = (codeEl.innerText || codeEl.textContent || '').replace(/\u00A0/g, ' ');
+        var done = function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 1500);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done, function() {
+            fallbackCopy(text);
+            done();
+          });
+        } else {
+          fallbackCopy(text);
+          done();
+        }
+      });
+      host.appendChild(btn);
+    });
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCopyButtons);
+  } else {
+    initCopyButtons();
+  }
+
+  // 返回顶部
+  (function() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
   </div>
  </body>
 </html>

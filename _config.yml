@@ -89,6 +89,13 @@ theme: kuri                              # 当前启用主题名称
 deploy:
   type: ''                                # 部署类型，暂时为空
 
+# Sitemap 【站点地图，供搜索引擎抓取】
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+
 # Kuri主题专属控制（仅此处设置home，主题配置内不要重复写）
 kuri:
   home: hero
