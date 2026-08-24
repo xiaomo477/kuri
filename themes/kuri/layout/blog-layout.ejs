@@ -66,8 +66,8 @@
 <script>
   // 代码块复制按钮（兼容 figure.highlight + 裸 pre，避免重复挂载）
   (function() {
-    var COPY_SVG = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-    var CHECK_SVG = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+    var COPY_BTN_HTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>复制</span>';
+    var COPIED_BTN_HTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>已复制</span>';
 
     function fallbackCopy(text) {
       var ta = document.createElement('textarea');
@@ -85,7 +85,7 @@
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'copy-btn';
-      btn.innerHTML = COPY_SVG;
+      btn.innerHTML = COPY_BTN_HTML;
       btn.title = '复制代码';
 
       btn.addEventListener('click', function(e) {
@@ -97,10 +97,10 @@
 
         var onDone = function() {
           btn.classList.add('copied');
-          btn.innerHTML = CHECK_SVG;
+          btn.innerHTML = COPIED_BTN_HTML;
           setTimeout(function() {
             btn.classList.remove('copied');
-            btn.innerHTML = COPY_SVG;
+            btn.innerHTML = COPY_BTN_HTML;
           }, 1500);
         };
 
