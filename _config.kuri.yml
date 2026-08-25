@@ -74,6 +74,32 @@ sidebar:
       - https://nodejs.org/zh-cn/download
       - Node.js下载
 
+  资源分享:
+    博客园:
+      - https://www.cnblogs.com
+      - 博客园社区
+    CSDN:
+      - https://www.csdn.net
+      - CSDN技术社区
+    清华镜像源:
+      - https://mirrors.tuna.tsinghua.edu.cn/
+      - 清华大学镜像站
+    MSDN:
+      - https://msdn.itellyou.cn/
+      - MSDN系统镜像
+    30aitool:
+      - https://www.30aitool.com
+      - 一站式免费在线工具合集
+    Iconfont:
+      - https://www.iconfont.cn/
+      - 阿里矢量图标素材库
+    Hexo:
+      - https://hexo.io/zh-cn/
+      - 静态博客框架
+    嘉立创:
+      - https://www.jlc.com/
+      - 嘉立创一站式制造业务官网
+
   影视音乐:
     抖音:
       - https://www.douyin.com
@@ -102,32 +128,6 @@ sidebar:
     动漫共和国:
       - https://www.dmghg1.com/
       - 动漫观看
-
-  资源分享:
-    博客园:
-      - https://www.cnblogs.com
-      - 博客园社区
-    CSDN:
-      - https://www.csdn.net
-      - CSDN技术社区
-    清华镜像源:
-      - https://mirrors.tuna.tsinghua.edu.cn/
-      - 清华大学镜像站
-    MSDN:
-      - https://msdn.itellyou.cn/
-      - MSDN系统镜像
-    30aitool:
-      - https://www.30aitool.com
-      - 一站式免费在线工具合集
-    Iconfont:
-      - https://www.iconfont.cn/
-      - 阿里矢量图标素材库
-    Hexo:
-      - https://hexo.io/zh-cn/
-      - 静态博客框架
-    嘉立创:
-      - https://www.jlc.com/
-      - 嘉立创一站式制造业务官网
 
   Win好用软件:
     微信:
@@ -169,7 +169,7 @@ sidebar_color:
     - share
     - mdui-text-color-orange
   AI工具:
-    - auto_awesome
+    - smart_toy
     - mdui-text-color-green
   影视音乐:
     - music_note
