@@ -266,7 +266,7 @@ hr {
 .blog-sidebar .mdui-collapse-item {
 	border-radius: 10px;
 	overflow: hidden;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
