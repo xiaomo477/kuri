@@ -404,6 +404,73 @@ hr {
 	}
 }
 
+/* ===== 主页 mdui-drawer 菜单美化（与 blog-sidebar 统一风格） ===== */
+.mdui-drawer .mdui-list {
+	padding: 4px 0 0;
+}
+
+.mdui-drawer .mdui-collapse-item {
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 4px;
+	transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mdui-drawer .mdui-collapse-item:hover {
+	background: rgba(255, 255, 255, 0.06);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.mdui-drawer .mdui-collapse-item-header {
+	color: #F5F5F5 !important;
+	transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.mdui-drawer .mdui-collapse-item-header:hover {
+	padding-left: 6px;
+}
+
+.mdui-drawer .mdui-collapse-item-header .mdui-list-item-icon {
+	transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease;
+}
+
+.mdui-drawer .mdui-collapse-item-header:hover .mdui-list-item-icon {
+	transform: rotate(12deg) scale(1.18);
+	text-shadow: 0 0 12px currentColor;
+}
+
+.mdui-drawer .mdui-collapse-item-arrow {
+	transition: transform 0.35s ease !important;
+}
+
+.mdui-drawer .mdui-collapse-item-body {
+	padding: 0 !important;
+}
+
+.mdui-drawer .mdui-collapse-item-open > .mdui-collapse-item-body {
+	padding: 4px 0 8px !important;
+}
+
+.mdui-drawer .mdui-collapse-item-body .mdui-list-item {
+	color: rgba(245, 245, 245, 0.85) !important;
+	border-radius: 8px;
+	margin: 2px 8px;
+	padding-left: 52px !important;
+	font-size: 0.92em;
+	transition: background 0.3s ease, color 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
+}
+
+.mdui-drawer .mdui-collapse-item-body .mdui-list-item:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #66CCFF !important;
+	padding-left: 60px !important;
+	transform: translateX(2px);
+}
+
+.mdui-drawer .mdui-collapse-item-body {
+	transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .blog-sidebar-profile {
 	text-align: center;
 	padding: 6px 0 12px;

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>xiaomo的小破站</title> 
+  <link rel="icon" href="/images/dog.jpg" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="博客" /> 
+  <link rel="canonical" href="https://xiaomoo.top" /> 
+  <link rel="stylesheet" href="/css/style.css" /> 
+  <link rel="stylesheet" href="/css/mdui.css" importance="high"/> 
+  
+  <link rel="stylesheet" href="//blog.kuri.ink/lib/aplayer@1.10.0/aplayer.min.css" /> 
+  
+  <script src="//cdn.kuri.ink/js/mdui/mdui.min.js" async></script>
+  <style>
+   @import url("/css/iconfont.css");
+  </style>
+ <meta name="generator" content="Hexo 8.1.2"></head> 
+ <body> 
+   <script>
+    let images = "https://api.ee123.net/img/bingimg/dayimg.jpg"
+    images = images.split(',')
+    let currentIndex = 0;
+
+    function changeBackground() {
+        //document.getElementById("bg").style.opacity = 1; // 渐隐
+        setTimeout(() => {
+            document.getElementById("bg").style.backgroundImage = `url(${images[currentIndex]})`;
+            document.getElementById("bg").style.opacity = 1; // 渐显
+            currentIndex = (currentIndex + 1) % images.length;
+        }, 1000); // 与transition时间一致
+    }
+
+    changeBackground()
+    setInterval(changeBackground, 15000); // 每15秒切换一次背景
+</script>
+  <div class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-loaded"> 
+   <!-- background --> 
+   <div id="bg" class="index_bg"></div> 
+   <!-- main --> 
+   <div>
+    
+    <header class="appbar mdui-appbar mdui-appbar-fixed" importance="high"> 
+    <div class="mdui-toolbar mdui-color-theme card-content"> 
+     <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"> <i class="mdui-icon material-icons" mdui-tooltip="{content: '菜单'}">menu</i> </span> 
+     <div class="mdui-toolbar-spacer">
+      
+     </div> 
+     <a href="https://github.com/xiaomo477" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Github'}"> 
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;"> 
+       <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"></path> 
+      </svg> </a> 
+    </div> 
+   </header>  
+
+    <div class="mdui-drawer mdui-drawer-close sidebar" id="main-drawer"> 
+     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 75px;"> 
+       
+      <div class="
+                mdui-collapse-item
+                "> 
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
+        <i class="
+                    mdui-list-item-icon
+                    mdui-icon
+                    material-icons
+                    mdui-text-color-red">home</i>
+        <div class="mdui-list-item-content">
+         首页
+        </div> 
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
+       </div>
+        
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="/" target="_blank" mdui-tooltip="{content: '前往首页'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">首页</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="/archives" target="_blank" mdui-tooltip="{content: '博客文章列表'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">博客</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="/friends" target="_blank" mdui-tooltip="{content: '友情链接'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">友链</a> 
+         </div>
+         
+      </div> 
+       
+      <div class="
+                mdui-collapse-item
+                "> 
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
+        <i class="
+                    mdui-list-item-icon
+                    mdui-icon
+                    material-icons
+                    mdui-text-color-green">auto_awesome</i>
+        <div class="mdui-list-item-content">
+         AI工具
+        </div> 
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
+       </div>
+        
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.doubao.com" target="_blank" mdui-tooltip="{content: '访问豆包AI'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">豆包</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.deepseek.com" target="_blank" mdui-tooltip="{content: '前往DeepSeek'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">DeepSeek</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.deepseek.com/harness/" target="_blank" mdui-tooltip="{content: '前往DeepSeekHarness'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">DeepSeekHarness</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.qianwen.com/" target="_blank" mdui-tooltip="{content: '访问千问'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">千问</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.kimi.com/" target="_blank" mdui-tooltip="{content: '访问Kimi'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Kimi</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://openai.com/zh-Hans-CN/" target="_blank" mdui-tooltip="{content: '访问OpenAI'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">openai</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.workbuddy.cn/" target="_blank" mdui-tooltip="{content: '访问Work Buddy'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Work Buddy</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.coze.cn/" target="_blank" mdui-tooltip="{content: '访问扣子'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">扣子</a> 
+         </div>
+         
+      </div> 
+       
+      <div class="
+                mdui-collapse-item
+                "> 
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
+        <i class="
+                    mdui-list-item-icon
+                    mdui-icon
+                    material-icons
+                    mdui-text-color-blue">near_me</i>
+        <div class="mdui-list-item-content">
+         工具
+        </div> 
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
+       </div>
+        
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://github.com" target="_blank" mdui-tooltip="{content: 'Github代码仓库'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">GitHub</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://test.ustc.edu.cn/" target="_blank" mdui-tooltip="{content: '中科大网络测速'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">中科大测速</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://ollama.com" target="_blank" mdui-tooltip="{content: '本地大模型Ollama'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Ollama</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://git-scm.com/install/windows" target="_blank" mdui-tooltip="{content: 'Windows Git下载'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Git安装</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://nodejs.org/zh-cn/download" target="_blank" mdui-tooltip="{content: 'Node.js下载'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Node安装</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://code.visualstudio.com/" target="_blank" mdui-tooltip="{content: 'VS代码编辑器'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">VS Code</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.disktool.cn" target="_blank" mdui-tooltip="{content: '磁盘分区工具'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">傲梅分区助手</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.7-zip.org" target="_blank" mdui-tooltip="{content: '开源压缩软件'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">7-Zip</a> 
+         </div>
+         
+      </div> 
+       
+      <div class="
+                mdui-collapse-item
+                "> 
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
+        <i class="
+                    mdui-list-item-icon
+                    mdui-icon
+                    material-icons
+                    mdui-text-color-purple">music_note</i>
+        <div class="mdui-list-item-content">
+         影视音乐
+        </div> 
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
+       </div>
+        
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.douyin.com" target="_blank" mdui-tooltip="{content: '抖音官网'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">抖音</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.bilibili.com" target="_blank" mdui-tooltip="{content: 'Bilibili哔哩哔哩'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">B站</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://mineradio.cn/" target="_blank" mdui-tooltip="{content: 'Mineradio音乐电台'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Mineradio</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://music.douyin.com/qishui" target="_blank" mdui-tooltip="{content: '汽水音乐电台'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">汽水音乐</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://music.163.com/" target="_blank" mdui-tooltip="{content: '网易云音乐'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">网易云音乐</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://v.qq.com/" target="_blank" mdui-tooltip="{content: '腾讯视频'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">腾讯视频</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.iqiyi.com/" target="_blank" mdui-tooltip="{content: '爱奇艺视频'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">爱奇艺</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.qmp4.com/vt/1.html" target="_blank" mdui-tooltip="{content: '视频观看'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">七味电影</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.dmghg1.com/" target="_blank" mdui-tooltip="{content: '动漫观看'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">动漫共和国</a> 
+         </div>
+         
+      </div> 
+       
+      <div class="
+                mdui-collapse-item
+                "> 
+       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
+        <i class="
+                    mdui-list-item-icon
+                    mdui-icon
+                    material-icons
+                    mdui-text-color-orange">share</i>
+        <div class="mdui-list-item-content">
+         资源分享
+        </div> 
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
+       </div>
+        
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.cnblogs.com" target="_blank" mdui-tooltip="{content: '博客园社区'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">博客园</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.csdn.net" target="_blank" mdui-tooltip="{content: 'CSDN技术社区'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">CSDN</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" mdui-tooltip="{content: '清华大学镜像站'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">清华镜像源</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://msdn.itellyou.cn/" target="_blank" mdui-tooltip="{content: 'MSDN系统镜像'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">MSDN</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.30aitool.com" target="_blank" mdui-tooltip="{content: '一站式免费在线工具合集'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">30aitool</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.iconfont.cn/" target="_blank" mdui-tooltip="{content: '阿里矢量图标素材库'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Iconfont</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://hexo.io/zh-cn/" target="_blank" mdui-tooltip="{content: '静态博客框架'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">Hexo</a> 
+         </div>
+          
+         <div class="mdui-collapse-item-body mdui-list"> 
+          <a href="https://www.jlc.com/" target="_blank" mdui-tooltip="{content: '嘉立创一站式制造业务官网'}" class="
+                        mdui-list-item
+                        mdui-ripple
+                        ">嘉立创</a> 
+         </div>
+         
+      </div> 
+      
+     </div> 
+    </div> 
+   </div> 
+
+   <div id="container" class="container"> 
+    <div class="card"> 
+     <div id="card-content" class="card-content"> 
+      <center>
+       <div class="logo"></div>
+       <style>
+        .logo {
+	        width: 100px;
+	        height: 100px;
+	        margin-top: -50px;
+	        border:1px soild white;
+	        background: url('/images/dog.jpg') no-repeat center;
+	        border-radius: 50px;
+	        background-size: 100px;
+        }
+       </style>
+      </center> 
+      <b class="nickname">xiaomo的小破站</b> 
+      <br /> 
+      <b class="motto">愛をもって長き年月に立ち向かい、継続をもって心の遠き彼方へ赴く。</b> 
+     </div> 
+    </div> 
+
+    <div class="card" style="margin-top: 1%;"> 
+     <div id="card-content" class="card-content"> 
+      <div class="social">
+         
+        <a href="https://space.bilibili.com/3690998966257910" target="_blank"><button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Bilibili'}"><span class="iconfont iconbili"></span></button></a> 
+        
+        <a href="https://github.com/xiaomo477" target="_blank"><button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Github'}"><span class="iconfont icongithub"></span></button></a> 
+        
+        <a href="/archives" target="_blank"><button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '博客'}"><span class="iconfont iconblog"></span></button></a> 
+        
+        <a href="/friends" target="_blank"><button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '友链'}"><span class="iconfont iconlink"></span></button></a> 
+       
+      </div> 
+     </div> 
+    </div> 
+
+   </div>  
+
+   <!-- footer --> 
+   <div id="footer" class="footer"> 
+    <p class="remark">
+      欢迎访问我的小破站<br>
+      
+      <br>Powered By <a href="https://hexo.io/" target="_blank"> Hexo </a> And <a href="https://mdui.org" target="_blank">MDUI</a>.<br /> Theme ❤ <a href="https://kuri.ink/" target="">kuri</a>. 
+
+    </p> 
+   </div>  
+   <script async="" src="//blog.kuri.ink/lib/aplayer@1.10.0/aplayer.min.js" type="text/javascript"></script> 
+   <script async="" src="//blog.kuri.ink/lib/meting/meting.min.js" type="text/javascript"></script>
+
+   
+      <meting-js style="position: absolute; z-index:99999;" type="playlist" server="" id="164238075" fixed="true"></meting-js> 
+   
+
+   
+      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+      <script>LA.init({id: "",ck: ""})</script>
+   
+
+  </div>
+ </body>
+</html>
