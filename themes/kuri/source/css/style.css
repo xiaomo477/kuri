@@ -258,6 +258,148 @@ hr {
 	color: rgba(245, 245, 245, 0.7);
 }
 
+/* ===== 侧边栏导航美化 ===== */
+.blog-sidebar .mdui-list {
+	padding: 0;
+}
+
+.blog-sidebar .mdui-collapse-item {
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 6px;
+	transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-sidebar .mdui-collapse-item:hover {
+	background: rgba(255, 255, 255, 0.06);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.blog-sidebar .mdui-collapse-item-header {
+	transition: background 0.3s ease, padding-left 0.3s ease;
+	position: relative;
+}
+
+.blog-sidebar .mdui-collapse-item-header::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 18%;
+	bottom: 18%;
+	width: 3px;
+	border-radius: 0 3px 3px 0;
+	background: currentColor;
+	opacity: 0;
+	transform: scaleY(0);
+	transform-origin: center;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.blog-sidebar .mdui-collapse-item-header:hover {
+	padding-left: 6px;
+}
+
+.blog-sidebar .mdui-collapse-item-header:hover::before,
+.blog-sidebar .mdui-collapse-item-dom-open .mdui-collapse-item-header::before {
+	opacity: 0.85;
+	transform: scaleY(1);
+}
+
+.blog-sidebar .mdui-collapse-item-header .mdui-list-item-icon {
+	transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease;
+}
+
+.blog-sidebar .mdui-collapse-item-header:hover .mdui-list-item-icon {
+	transform: rotate(12deg) scale(1.18);
+	text-shadow: 0 0 12px currentColor;
+}
+
+.blog-sidebar .mdui-collapse-item-arrow {
+	transition: transform 0.35s ease, color 0.3s ease !important;
+}
+
+.blog-sidebar .mdui-collapse-item-dom-open .mdui-collapse-item-arrow {
+	color: #F5F5F5 !important;
+}
+
+.blog-sidebar .mdui-collapse-item-body {
+	padding: 4px 0 8px !important;
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item {
+	padding-left: 52px !important;
+	font-size: 0.92em;
+	border-radius: 8px;
+	margin: 2px 8px;
+	color: rgba(245, 245, 245, 0.85) !important;
+	transition: background 0.3s ease, color 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item::before {
+	content: "";
+	position: absolute;
+	left: 38px;
+	top: 50%;
+	width: 6px;
+	height: 1px;
+	background: rgba(245, 245, 245, 0.35);
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.35s ease;
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #66CCFF !important;
+	padding-left: 60px !important;
+	transform: translateX(2px);
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:hover::before {
+	transform: scaleX(1);
+	background: currentColor;
+}
+
+/* MDUI 自带折叠动画过渡时长微调（更顺滑） */
+.blog-sidebar .mdui-collapse-item-body {
+	transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item {
+	animation: sidebarItemIn 0.45s ease both;
+}
+
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(1) { animation-delay: 0.04s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(2) { animation-delay: 0.08s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(3) { animation-delay: 0.12s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(4) { animation-delay: 0.16s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(5) { animation-delay: 0.20s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(6) { animation-delay: 0.24s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(7) { animation-delay: 0.28s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(8) { animation-delay: 0.32s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(9) { animation-delay: 0.36s; }
+.blog-sidebar .mdui-collapse-item-body .mdui-list-item:nth-child(n+10) { animation-delay: 0.40s; }
+
+@keyframes sidebarItemIn {
+	from {
+		opacity: 0;
+		transform: translateX(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.blog-sidebar * {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
 .blog-sidebar-profile {
 	text-align: center;
 	padding: 6px 0 16px;

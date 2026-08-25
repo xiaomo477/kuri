@@ -50,6 +50,9 @@ sidebar:
     扣子:
       - https://www.coze.cn/
       - 访问扣子
+    Ollama:
+      - https://ollama.com
+      - 本地大模型Ollama
 
   工具:
     GitHub:
@@ -58,24 +61,18 @@ sidebar:
     中科大测速:
       - https://test.ustc.edu.cn/
       - 中科大网络测速
-    Ollama:
-      - https://ollama.com
-      - 本地大模型Ollama
+    VS Code:
+      - https://code.visualstudio.com/
+      - VS代码编辑器
+    PyCharm:
+      - https://www.jetbrains.com/pycharm/
+      - PyCharm编辑器
     Git安装:
       - https://git-scm.com/install/windows
       - Windows Git下载
     Node安装:
       - https://nodejs.org/zh-cn/download
       - Node.js下载
-    VS Code:
-      - https://code.visualstudio.com/
-      - VS代码编辑器
-    傲梅分区助手:
-      - https://www.disktool.cn
-      - 磁盘分区工具
-    7-Zip:
-      - https://www.7-zip.org
-      - 开源压缩软件
 
   影视音乐:
     抖音:
@@ -132,6 +129,35 @@ sidebar:
       - https://www.jlc.com/
       - 嘉立创一站式制造业务官网
 
+  Win好用软件:
+    微信:
+      - https://weixin.qq.com/
+      - 微信官网
+    QQ:
+      - https://im.qq.com/
+      - QQ官网
+    图吧工具箱:
+      - https://tbtol.cn/
+      - 图吧导航工具箱
+    HiBit Uninstaller:
+      - https://hibit-uninstaller.com/zh/
+      - 软件卸载工具
+    阿里云盘:
+      - https://www.alipan.com/
+      - 阿里云盘网盘
+    UU远程:
+      - https://uuyc.163.com/
+      - 远程控制软件
+    7-Zip:
+      - https://www.7-zip.org
+      - 开源压缩软件
+    Watt Toolkit:
+      - https://steampp.net/
+      - 原steam++
+    傲梅分区助手:
+      - https://www.disktool.cn
+      - 磁盘分区工具
+
 sidebar_color:
   首页:
     - home
@@ -143,11 +169,14 @@ sidebar_color:
     - share
     - mdui-text-color-orange
   AI工具:
-    - smart_toy
+    - auto_awesome
     - mdui-text-color-green
   影视音乐:
     - music_note
     - mdui-text-color-purple
+  Win好用软件:
+    - desktop_windows
+    - mdui-text-color-pink
 
 
 
