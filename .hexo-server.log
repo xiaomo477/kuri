@@ -1,3 +1,9 @@
 [32mINFO [39m Validating config
 [32mINFO [39m Start processing
 [32mINFO [39m Hexo is running at [4mhttp://localhost:4124/[24m . Press Ctrl+C to stop.
+[41mFATAL[49m Something's wrong. Maybe you can find the solution here: [4mhttps://hexo.io/docs/troubleshooting.html[24m
+[33mError: EPERM: operation not permitted, open 'E:\hexo\hexo-kuri\db.json'
+    at async open (node:internal/fs/promises:639:25)[39m
+[41mFATAL[49m 
+[33mError: EPERM: operation not permitted, open 'E:\hexo\hexo-kuri\db.json'
+    at async open (node:internal/fs/promises:639:25)[39m
