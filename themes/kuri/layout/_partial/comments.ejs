@@ -10,7 +10,8 @@
       serverURL: '<%= theme.comment.server_url %>',
       lang: '<%= theme.comment.lang || 'zh-CN' %>',
       dark: '<%= theme.comment.dark || 'auto' %>',
-      pageview: <%= theme.comment.pageview ? 'true' : 'false' %><% if (theme.comment.emoji && theme.comment.emoji.length) { %>,
+      pageview: <%= theme.comment.pageview ? 'true' : 'false' %>,
+      avatarCDN: 'https://cravatar.cn/avatar/'<% if (theme.comment.emoji && theme.comment.emoji.length) { %>,
       emoji: <%- JSON.stringify(theme.comment.emoji) %><% } %>
     });
   </script>

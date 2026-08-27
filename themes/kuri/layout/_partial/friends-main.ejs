@@ -5,7 +5,7 @@
  <div class="friend-list">
   <% theme.friends.forEach(function(friend) { %>
   <a class="friend-card" href="<%= friend.link %>" target="_blank" rel="noopener">
-   <img class="friend-card-avatar" src="<%= friend.avatar %>" alt="<%= friend.name %>" loading="lazy" />
+   <img class="friend-card-avatar" src="<%= friend.avatar %>" alt="<%= friend.name %>" loading="lazy" onerror="this.src='/images/avatar.jpg'" />
    <div class="friend-card-body">
     <h3 class="friend-card-name"><%= friend.name %></h3>
     <p class="friend-card-desc"><%= friend.desc %></p>
