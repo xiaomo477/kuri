@@ -228,6 +228,9 @@ comment:
   lang: zh-CN                             # 评论界面语言
   dark: auto                              # 深色模式：auto 跟随系统
   pageview: false                         # 是否显示文章阅读量
+  default_avatar: mp                      # 未注册 Cravatar 的访客使用的默认头像
+                                           #   可选内置样式：mp(灰色人形) / identicon(几何图案) / monsterid / wavatar / retro / robohash / blank(空白)
+                                           #   也可填完整图片 URL，例如：https://xiaomoo.top/images/zzh.jpg
   emoji:                                  # 自定义表情包（可选）
     - https://unpkg.com/@waline/emojis@1.2.0/weibo
 

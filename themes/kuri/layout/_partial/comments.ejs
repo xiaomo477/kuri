@@ -13,8 +13,8 @@
       pageview: <%= theme.comment.pageview ? 'true' : 'false' %>,
       // cn.cravatar.com 是当前官方正式域名；cravatar.cn 已 301 重定向到该域名，但部分浏览器/网络环境跟随重定向会失败
       avatarCDN: 'https://cn.cravatar.com/avatar/',
-      // 未注册 Cravatar 的访客回退到 identicon 几何头像，避免再出现"破图标"
-      defaultAvatar: 'identicon'<% if (theme.comment.emoji && theme.comment.emoji.length) { %>,
+      // 未注册 Cravatar 的访客统一回退默认头像，可在 _config.kuri.yml 的 comment.default_avatar 修改
+      defaultAvatar: '<%= theme.comment.default_avatar || "mp" %>'<% if (theme.comment.emoji && theme.comment.emoji.length) { %>,
       emoji: <%- JSON.stringify(theme.comment.emoji) %><% } %>
     });
   </script>
