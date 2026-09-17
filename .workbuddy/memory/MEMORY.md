@@ -17,7 +17,9 @@ Hexo 遇到单篇文章 front-matter 解析失败时，**只打 ERROR 日志然�
 npx hexo generate --debug 2>&1 | grep -iE "error|warn"
 ```
 
-常见原因：从 Word / 网页 / 微信复制内容时带入**零宽空格 U+200B** 等不可见字符，污染了 `---` 分隔符行。
+常见原因（按出现频率排序）：
+1. **冒号后缺空格**，如 `tags:技术分享`。YAML 要求 `key: value` 冒号后必须有空格，否则这段不是合法映射，直接解析失败。**手写 front-matter 时最容易犯**，一眼能看出来。
+2. 从 Word / 网页 / 微信复制内容时带入**零宽空格 U+200B** 等不可见字符，污染了 `---` 分隔符行（肉眼看不见，需脚本检查）。
 检查脚本（Python）：
 ```python
 import unicodedata, collections
@@ -37,3 +39,10 @@ tags: 技术分享
 ### 其他
 - kuri 主题模板**不使用 `categories` 字段**，写了不生效，用 `tags` 即可。
 - 文章头部备份放 `.workbuddy/backup/`。
+- 主题 CSS（`themes/kuri/source/css/style.css`）已于 2026-09-17 修复手机端整页横向溢出：
+  移动端断点用 `display: block` 取代纵向 flex；`.post-content pre/table` 均为块内横向滚动。
+  改主题布局时注意 `.blog-main { flex: 1 1 0 }` 只在横向 flex 下约束宽度。
+- 主题 head 里的 `@import fonts.googleapis.com` 在本机网络挂起（TLS 被断），
+  本地浏览器调试时页面 load 事件等不到属正常，文档实际已加载。
+- 本地预览：`npx hexo server -p 4319`；浏览器调试用 agent-browser + 本机 Edge
+  （`AGENT_BROWSER_EXECUTABLE_PATH` 指向 msedge.exe，Chrome 内核下载被墙）。
