@@ -5,8 +5,8 @@
   <div class="blog-sidebar-motto"><%= theme.motto %></div>
   <% if (theme.social) { %>
   <div class="blog-sidebar-social">
-   <% for (a in theme.social) { %>
-   <a href="<%= theme.social[a][0] %>" target="_blank" mdui-tooltip="{content: '<%= theme.social[a][1] %>'}"><span class="<%= theme.social[a][2] %>"></span></a>
+   <% for (a in theme.social) { %><% var socialUrl = theme.social[a][0]; %>
+   <a href="<%= socialUrl %>"<% if (is_external(socialUrl)) { %> target="_blank" rel="noopener noreferrer"<% } %> mdui-tooltip="{content: '<%= theme.social[a][1] %>'}"><span class="<%= theme.social[a][2] %>"></span></a>
    <% } %>
   </div>
   <% } %>
@@ -20,9 +20,9 @@
     <div class="mdui-list-item-content"><%= c %></div>
     <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
    </div>
-   <% for (d in theme.sidebar[c]) { %>
+   <% for (d in theme.sidebar[c]) { %><% var navUrl = theme.sidebar[c][d][0]; %>
    <div class="mdui-collapse-item-body mdui-list">
-    <a href="<%= theme.sidebar[c][d][0] %>" target="_blank" mdui-tooltip="{content: '<%= theme.sidebar[c][d][1] %>'}" class="mdui-list-item mdui-ripple"><%= d %></a>
+    <a href="<%= navUrl %>"<% if (is_external(navUrl)) { %> target="_blank" rel="noopener noreferrer"<% } %> mdui-tooltip="{content: '<%= theme.sidebar[c][d][1] %>'}" class="mdui-list-item mdui-ripple"><%= d %></a>
    </div>
    <% } %>
   </div>
