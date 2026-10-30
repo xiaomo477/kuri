@@ -26,7 +26,7 @@ layout: false
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="/css/love-src.css" />
 <% if (useWaline) { %>
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <link rel="stylesheet" href="/waline/waline.css" />
 <% } %>
   <style>
    /* Waline 落在白卡里，压掉它自带的外边距与背景 */
@@ -59,7 +59,7 @@ layout: false
    </div>
 
    <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    import { init } from '/waline/waline.js';
     init({
      el: '#waline',
      serverURL: '<%= comment.server_url %>',

@@ -2,9 +2,9 @@
 <div id="comments" class="post-comments">
   <h2 class="post-comments-title">评论</h2>
   <div id="waline"></div>
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <link rel="stylesheet" href="/waline/waline.css" />
   <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    import { init } from '/waline/waline.js';
     init({
       el: '#waline',
       serverURL: '<%= theme.comment.server_url %>',
