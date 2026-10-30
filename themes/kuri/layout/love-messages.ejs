@@ -26,6 +26,8 @@ layout: false
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="/css/love-src.css" />
 <% if (useWaline) { %>
+  <link rel="preconnect" href="<%= comment.server_url %>" crossorigin />
+  <link rel="dns-prefetch" href="<%= comment.server_url %>" />
   <link rel="stylesheet" href="/waline/waline.css" />
 <% } %>
   <style>
@@ -58,6 +60,7 @@ layout: false
     <div id="waline"></div>
    </div>
 
+   <script src="/js/comment-guard.js"></script>
    <script type="module">
     import { init } from '/waline/waline.js';
     init({

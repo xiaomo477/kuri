@@ -9,6 +9,11 @@
   <meta name="keywords" content="<%= page.tags && page.tags.length ? page.tags.toArray().map(function(t){return t.name}).join(',') : config.keywords %>" />
   <meta name="description" content="<%= page.description || config.description %>" /> 
   <link rel="canonical" href="<%= config.url %>" /> 
+  <% if (theme.comment && theme.comment.enable && theme.comment.platform === 'waline' && is_post()) { %>
+  <!-- 评论后端跨境，提前握手，省掉初始化时 1~5s 的 TLS 等待 -->
+  <link rel="preconnect" href="<%= theme.comment.server_url %>" crossorigin />
+  <link rel="dns-prefetch" href="<%= theme.comment.server_url %>" />
+  <% } %>
   <link rel="stylesheet" href="/css/style.css" /> 
   <link rel="stylesheet" href="/css/mdui.css" importance="high"/> 
   <% if (theme.aplayer.enable) { %>
