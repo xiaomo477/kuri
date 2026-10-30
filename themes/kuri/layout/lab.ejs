@@ -1,0 +1,35 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="<%= config.keywords %>" />
+  <meta name="description" content="<%= page.description || config.description %>" />
+  <link rel="stylesheet" href="/css/lab.css" />
+ </head>
+ <body>
+  <!-- 全屏渲染画布：所有前端渲染（Canvas / WebGL / Three.js）都挂在这里 -->
+  <canvas id="lab-canvas"></canvas>
+
+  <header class="lab-bar">
+   <a class="lab-bar-btn" href="/">← 返回首页</a>
+   <span class="lab-bar-title"><%= page.title %></span>
+   <a class="lab-bar-btn" href="/archives">博客归档 →</a>
+  </header>
+
+  <main class="lab-main">
+   <section class="lab-card">
+    <div class="lab-card-body"><%- page.content %></div>
+   </section>
+   <div class="lab-hud" id="lab-hud">FPS <b id="lab-fps">--</b> · 粒子 <b id="lab-count">--</b></div>
+  </main>
+
+  <script src="/js/lab.js" defer></script>
+ </body>
+</html>

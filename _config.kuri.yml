@@ -24,6 +24,9 @@ sidebar:
     友链:
       - /friends
       - 友情链接
+    渲染实验室:
+      - /lab/
+      - 前端渲染页面演示
 
   AI工具:
     豆包:
@@ -191,6 +194,10 @@ social:
     - https://github.com/xiaomo477
     - Github
     - iconfont icongithub
+  heart:
+    - /success/ # 爱心小屋跳转地址
+    - 爱心小窝
+    - iconheart
   blog:
     - /archives # 博客归档跳转地址
     - 博客
@@ -199,6 +206,72 @@ social:
     - /friends # 友情链接页面地址
     - 友链
     - iconfont iconlink
+
+# ===== 爱心小屋 =====
+# 首页 /success/ · 相册 /album/ · 点滴 /love/notes/ · 清单 /love/list/
+# 留言 /love/messages/ · 关于 /love/about/
+love:
+  site:
+    name: 小哞和小罐 # 顶栏左侧站名（各页通用）
+    writing: 喜欢花 喜欢海 喜欢你~ # 顶栏右侧一行文案
+    background: "" # 首页头像区背景图，留空用默认渐变。例：/images/love/hero.jpg
+  left:
+    avatar: /images/dog.jpg # 左侧头像
+    name: 小哞 # 左侧名字
+  right:
+    avatar: /images/guan.jpg # 右侧头像
+    name: 小罐 # 右侧名字
+  together_since: '2026-10-23 21:55' # 起始时刻，可写 2026-10-23 或 2026-10-23 21:55（务必保留引号）
+  timer_label: 这是我们一起走过的 # 首页天数上方小字
+
+  # 首页功能卡片；整段删掉则使用内置默认的 4 个
+  # icon 可选：diandian（点滴）/ liuyan（留言）/ loveimg（相册）/ about（关于）
+  cards:
+    - title: 点点滴滴
+      desc: 写给你的碎碎念
+      url: /love/notes/
+      icon: diandian
+    - title: 留言板
+      desc: 想说的话都留在这里
+      url: /love/messages/
+      icon: liuyan
+    - title: 恋爱相册
+      desc: 把日子过成照片
+      url: /album/
+      icon: loveimg
+    - title: 关于我们
+      desc: 只住两个人的地方
+      url: /love/about/
+      icon: about
+
+  # 恋爱清单 /love/list/
+  # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图
+  wishlist:
+    - title: 一起看一次海
+      date: 2026-11-01
+      done: true
+      photo: ""
+    - title: 一起养一只猫
+      date: 2027-01-01
+      done: false
+      photo: ""
+
+  # 关于我们 /love/about/，聊天式逐句出现
+  about:
+    title: 小哞和小罐 # 标题里"与 ×× 对话中"的 ××
+    background: "" # 对话区背景图，留空用默认渐变
+    dialog:
+      - 你好呀，我是小罐～
+      - 这个小站只住了两个人
+      - 想再多了解一点，就点下面的按钮吧
+    # reply 可以是单句或数组；next 可写下一组按钮
+    buttons:
+      - text: 我们是谁
+        reply:
+          - 一个爱拍照，一个爱写字
+          - 日子过得很慢，但都记在这里了
+      - text: 随便逛逛
+        reply: 那就随便逛逛吧，别客气～
 
 # Footer / 页脚信息
 author: xiaomo # 版权署名

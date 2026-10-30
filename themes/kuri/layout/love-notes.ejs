@@ -1,0 +1,67 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var notes = page.notes || [];
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || '点点滴滴' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+ </head>
+ <body class="lovepage">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word">在一起的第 <span data-love-days data-since="<%= sinceText %>"><b data-love-days-num>1</b></span> 天</div>
+   </div>
+  </header>
+
+  <main class="lp-central lp-central-800">
+   <div class="lp-title">
+    <h1>有人愿意听你碎碎念念也很浪漫</h1>
+   </div>
+
+<% if (!notes.length) { %>
+   <div class="lp-gallery-empty">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-1 14H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V6h10v2z"/></svg>
+    <b>还没有写过</b>
+    <p>在 <code>source/_love_notes/</code> 里新建 .md 文件</p>
+    <p>重新生成后就会出现在这里</p>
+   </div>
+<% } else { %>
+   <div class="lp-notes">
+<% notes.forEach(function (n) { %>
+    <a class="lp-note" href="/love/notes/<%= n.slug %>/">
+     <span class="lp-note-title"><%= n.title %></span>
+     <span class="lp-note-meta"><%= n.author ? n.author + ' ' : '' %><i>记录于</i> <%= n.dateText %></span>
+    </a>
+<% }); %>
+   </div>
+<% } %>
+
+   <footer class="lp-foot">
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= notes.length ? '一共 ' + notes.length + ' 篇碎碎念' : '未完待续' %></p>
+   </footer>
+  </main>
+
+  <script src="/js/love-days.js" defer></script>
+ </body>
+</html>

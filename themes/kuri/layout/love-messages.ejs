@@ -1,0 +1,89 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var comment = theme.comment || {};
+  var useWaline = comment.enable && comment.platform === 'waline' && comment.server_url;
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || '留言板' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+<% if (useWaline) { %>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<% } %>
+  <style>
+   /* Waline 落在白卡里，压掉它自带的外边距与背景 */
+   .lp-waline { padding: 1.6rem 1.6rem .6rem; }
+   .lp-waline .wl-panel,
+   .lp-waline .wl-card { box-shadow: none; }
+   .lp-waline .wl-editor { min-height: 7rem; }
+   .lp-waline .wl-btn.primary { background-color: #6f9a8d; border-color: #6f9a8d; }
+   .lp-waline .wl-btn.primary:hover { background-color: #5e8879; border-color: #5e8879; }
+   .lp-waline :root { --waline-theme-color: #6f9a8d; }
+  </style>
+ </head>
+ <body class="lovepage">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word">在一起的第 <span data-love-days data-since="<%= sinceText %>"><b data-love-days-num>1</b></span> 天</div>
+   </div>
+  </header>
+
+  <main class="lp-central lp-central-800">
+   <div class="lp-title">
+    <h1>想说的话 都留在这里</h1>
+   </div>
+
+<% if (useWaline) { %>
+   <div class="lp-panel lp-waline">
+    <div id="waline"></div>
+   </div>
+
+   <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+     el: '#waline',
+     serverURL: '<%= comment.server_url %>',
+     lang: '<%= comment.lang || "zh-CN" %>',
+     dark: 'false',
+     pageview: false,
+     avatarCDN: 'https://cn.cravatar.com/avatar/',
+     defaultAvatar: '<%= comment.default_avatar || "mp" %>'<% if (comment.emoji && comment.emoji.length) { %>,
+     emoji: <%- JSON.stringify(comment.emoji) %><% } %>
+    });
+   </script>
+<% } else { %>
+   <div class="lp-gallery-empty">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+    <b>留言板还没接上</b>
+    <p>在 <code>_config.kuri.yml</code> 的 <code>comment</code> 里配好 Waline</p>
+   </div>
+<% } %>
+
+   <footer class="lp-foot">
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= site.writing || '喜欢花 喜欢海 喜欢你~' %></p>
+   </footer>
+  </main>
+
+  <script src="/js/love-days.js" defer></script>
+ </body>
+</html>

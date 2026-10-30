@@ -1,0 +1,105 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var wishes = (love.wishlist || []).filter(function (w) { return w && (w.title || w.name); });
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+
+  var doneCount = wishes.filter(function (w) { return w.done; }).length;
+
+  // YAML 会把 2026-11-01 解析成 Date 对象，这里统一转成 YYYY-MM-DD
+  function fmtDate(v) {
+    if (!v) return '';
+    if (v instanceof Date) {
+      return v.getFullYear() + '-' + pad2(v.getMonth() + 1) + '-' + pad2(v.getDate());
+    }
+    return String(v);
+  }
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || 'Love List' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+ </head>
+ <body class="lovepage">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word">在一起的第 <span data-love-days data-since="<%= sinceText %>"><b data-love-days-num>1</b></span> 天</div>
+   </div>
+  </header>
+
+  <main class="lp-central lp-central-600">
+   <div class="lp-title">
+    <h1>总有些惊奇的际遇<br />比方说当我遇见你</h1>
+   </div>
+
+<% if (!wishes.length) { %>
+   <div class="lp-gallery-empty">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <b>清单还是空的</b>
+    <p>在 <code>_config.kuri.yml</code> 的 <code>love.wishlist</code> 里添加</p>
+   </div>
+<% } else { %>
+   <div class="lp-panel lp-wishlist">
+<% wishes.forEach(function (w, i) { %>
+    <div class="lp-wish<%= w.done ? ' is-done' : '' %>">
+     <button class="lp-wish-head" type="button" aria-expanded="false">
+      <span class="ico">
+       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </span>
+      <span class="lp-wish-name"><%= w.title || w.name %></span>
+<% if (w.date) { %>
+      <span class="lp-wish-date"><%= fmtDate(w.date) %></span>
+<% } %>
+<% if (w.photo) { %>
+      <span class="lp-wish-toggle" aria-hidden="true">
+       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+      </span>
+<% } %>
+     </button>
+<% if (w.photo) { %>
+     <div class="lp-wish-photo">
+      <img src="<%= w.photo %>" alt="<%= w.title || w.name %>" loading="lazy" />
+     </div>
+<% } %>
+    </div>
+<% }); %>
+   </div>
+<% } %>
+
+   <footer class="lp-foot">
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= wishes.length ? ('完成 ' + doneCount + ' / ' + wishes.length) : '未完待续' %></p>
+   </footer>
+  </main>
+
+  <script src="/js/love-days.js" defer></script>
+  <script>
+   document.querySelectorAll('.lp-wish-head').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+     var item = btn.parentNode;
+     var photo = item.querySelector('.lp-wish-photo');
+     if (!photo) return;
+     var open = item.classList.toggle('is-open');
+     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+   });
+  </script>
+ </body>
+</html>

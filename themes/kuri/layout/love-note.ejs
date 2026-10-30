@@ -1,0 +1,59 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var note = page.note || {};
+  var content = page.content || '';
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || '碎碎念' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+ </head>
+ <body class="lovepage">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word">在一起的第 <span data-love-days data-since="<%= sinceText %>"><b data-love-days-num>1</b></span> 天</div>
+   </div>
+  </header>
+
+  <main class="lp-central lp-central-800">
+   <p style="text-align:center;margin:1.2rem 0 .4rem">
+    <a class="lp-back" href="/love/notes/">← 回到点点滴滴</a>
+   </p>
+
+   <article class="lp-panel lp-note-body">
+    <h1 style="text-align:center"><%= note.title || page.title %></h1>
+    <p style="text-align:center;color:#a1a1a1;font-size:1.05rem;letter-spacing:.1em">
+     <%= note.author ? note.author + ' ' : '' %>记录于 <%= note.dateText || '' %>
+    </p>
+    <div style="width:75%;margin:1.2rem auto;border-top:1px solid #e3e3e3"></div>
+    <%- content %>
+   </article>
+
+   <footer class="lp-foot">
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= site.writing || '喜欢花 喜欢海 喜欢你~' %></p>
+   </footer>
+  </main>
+
+  <script src="/js/love-days.js" defer></script>
+ </body>
+</html>

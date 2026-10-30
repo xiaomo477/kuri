@@ -1,0 +1,127 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var mateL = love.left || {};
+  var mateR = love.right || {};
+  var avatarL = mateL.avatar || '/images/dog.jpg';
+  var avatarR = mateR.avatar || '/images/guan.jpg';
+  var heroBg = site.background || '';
+  var timerLabel = love.timer_label || '这是我们一起走过的';
+
+  var cards = love.cards && love.cards.length ? love.cards : [
+    { title: '点点滴滴', desc: '写给你的碎碎念', url: '/love/notes/', icon: 'diandian' },
+    { title: '留言板', desc: '想说的话都留在这里', url: '/love/messages/', icon: 'liuyan' },
+    { title: '恋爱相册', desc: '把日子过成照片', url: '/album/', icon: 'loveimg' },
+    { title: '关于我们', desc: '关于这个只住两个人的小站', url: '/love/about/', icon: 'about' }
+  ];
+
+  var iconMap = {
+    diandian: '/images/love-icons/diandian.png',
+    liuyan: '/images/love-icons/liuyan.png',
+    xinf: '/images/love-icons/xinf.png',
+    loveimg: '/images/love-icons/loveimg.png',
+    about: '/images/love-icons/about.png'
+  };
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+  var sinceDate = m
+    ? m[1] + ' 年 ' + (+m[2]) + ' 月 ' + (+m[3]) + ' 日'
+    : '2026 年 10 月 23 日';
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || site.name || '爱心小屋' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+ </head>
+ <body class="lovepage lp-home">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word"><%= site.writing || '喜欢花 喜欢海 喜欢你~' %></div>
+   </div>
+  </header>
+
+  <section class="lp-hero"<% if (heroBg) { %> style="--lp-hero-bg:url('<%= heroBg %>')"<% } %>>
+   <div class="lp-pair">
+    <div class="lp-person">
+     <img src="<%= avatarL %>" alt="<%= mateL.name || '' %>" loading="lazy" />
+     <span><%= mateL.name || '空' %></span>
+    </div>
+    <div class="lp-heart" aria-hidden="true">
+     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ff5b8a"/></svg>
+    </div>
+    <div class="lp-person">
+     <img src="<%= avatarR %>" alt="<%= mateR.name || '' %>" loading="lazy" />
+     <span><%= mateR.name || '空' %></span>
+    </div>
+   </div>
+
+   <svg class="lp-waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" aria-hidden="true">
+    <defs>
+     <path id="lp-gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
+    </defs>
+    <g class="lp-parallax">
+     <use xlink:href="#lp-gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+     <use xlink:href="#lp-gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+     <use xlink:href="#lp-gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+     <use xlink:href="#lp-gentle-wave" x="48" y="7" fill="#fdfdfd" />
+    </g>
+   </svg>
+  </section>
+
+  <section class="lp-time">
+   <p class="lp-time-caption"><%= timerLabel %></p>
+   <p class="lp-time-line" data-love-days data-since="<%= sinceText %>">
+    <span class="lp-time-prefix">在一起的第</span>
+    <b data-love-days-num>1</b>
+    <span class="lp-time-suffix">天</span>
+   </p>
+   <p class="lp-time-since">始于 <%= sinceDate %></p>
+  </section>
+
+  <div class="lp-divider" aria-hidden="true">
+   <span></span>
+   <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+   <span></span>
+  </div>
+
+  <section class="lp-cards">
+<% cards.forEach(function (c) { %>
+   <div class="lp-card">
+<% if (iconMap[c.icon]) { %>
+    <img src="<%= iconMap[c.icon] %>" alt="" loading="lazy" />
+<% } else { %>
+    <span class="lp-card-ico"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+<% } %>
+    <div class="text">
+     <span><a href="<%= c.url %>"><%= c.title %></a></span>
+     <p><%= c.desc || '' %></p>
+    </div>
+   </div>
+<% }); %>
+  </section>
+
+  <footer class="lp-foot">
+   <p><b><%= site.name || '小哞和小罐' %></b> · <%= site.writing || '喜欢花 喜欢海 喜欢你~' %></p>
+  </footer>
+
+  <script src="/js/love-days.js" defer></script>
+</body>
+</html>

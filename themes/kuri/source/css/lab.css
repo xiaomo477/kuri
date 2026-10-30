@@ -1,0 +1,142 @@
+/* ===== 渲染实验室（layout: lab）独立页面样式 =====
+ * 不依赖 mdui / style.css，方便单独替换成任意前端框架产物。
+ */
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 20% 20%, #1b2a44 0%, #0b1120 45%, #05070d 100%);
+  color: #f5f5f5;
+  font-family: 'PlusJakartaSans-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Microsoft YaHei', sans-serif;
+}
+
+#lab-canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+  z-index: 0;
+}
+
+/* ===== 顶栏 ===== */
+.lab-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: rgba(6, 10, 20, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.lab-bar-title {
+  flex: 1;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-bar-btn {
+  color: #a9d8ff;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(169, 216, 255, 0.35);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lab-bar-btn:hover {
+  background: rgba(102, 204, 255, 0.16);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(102, 204, 255, 0.45);
+}
+
+/* ===== 主内容 ===== */
+.lab-main {
+  position: relative;
+  z-index: 5;
+  max-width: 760px;
+  margin: 96px auto 60px;
+  padding: 0 16px;
+}
+
+.lab-card {
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  line-height: 1.8;
+}
+
+.lab-card-body h1,
+.lab-card-body h2,
+.lab-card-body h3 {
+  margin: 1.2em 0 0.6em;
+  line-height: 1.3;
+}
+
+.lab-card-body h1 { font-size: 1.6em; }
+.lab-card-body h2 { font-size: 1.35em; }
+.lab-card-body h3 { font-size: 1.15em; }
+
+.lab-card-body a { color: #66ccff; }
+
+.lab-card-body code {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+.lab-card-body pre {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 14px;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.lab-card-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.lab-card-body ul,
+.lab-card-body ol {
+  padding-left: 1.4em;
+}
+
+/* ===== HUD ===== */
+.lab-hud {
+  margin-top: 14px;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  color: rgba(245, 245, 245, 0.6);
+  text-align: right;
+}
+
+.lab-hud b {
+  color: #66ccff;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+  .lab-bar { padding: 10px 12px; }
+  .lab-bar-title { font-size: 0.9em; }
+  .lab-main { margin-top: 84px; }
+}

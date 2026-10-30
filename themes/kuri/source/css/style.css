@@ -184,6 +184,29 @@ a, a:hover {
 	color: #F5F5F5;
 }
 
+/* 首页社交按钮中间的“爱心小屋”图标 */
+.social .jump-heart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	transform: translate(-50%, -50%);
+	fill: currentColor;
+	transition: fill .3s ease, transform .3s ease;
+	pointer-events: none;
+}
+
+.social a:hover .jump-heart {
+	fill: #ff6b92;
+	transform: translate(-50%, -50%) scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.social .jump-heart { transition: none; }
+}
+
 hr {
 	margin: 10px auto;
 	width: 0%;

@@ -1,0 +1,84 @@
+---
+layout: false
+---
+<%
+  var love = theme.love || {};
+  var site = love.site || {};
+  var photos = love_photos();
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  var raw = love.together_since;
+  if (raw instanceof Date) {
+    raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
+  }
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/.exec(String(raw || ''));
+  var sinceText = m
+    ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
+    : '2026-10-23 21:55:00';
+%><!DOCTYPE html>
+<html lang="<%= config.language %>">
+ <head>
+  <meta charset="utf-8" />
+  <title><%= page.title || '恋爱相册' %></title>
+  <link rel="icon" href="<%= theme.fav %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/css/love-src.css" />
+ </head>
+ <body class="lovepage">
+
+  <header class="lp-header">
+   <div class="lp-header-in">
+    <div class="lp-logo"><a href="/success/"><%= site.name || '小哞和小罐' %></a></div>
+    <div class="lp-word">在一起的第 <span data-love-days data-since="<%= sinceText %>"><b data-love-days-num>1</b></span> 天</div>
+   </div>
+  </header>
+
+  <main class="lp-central">
+   <div class="lp-title">
+    <h1>把日子过成照片</h1>
+   </div>
+
+<% if (!photos.length) { %>
+   <div class="lp-gallery-empty">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 5.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5z"/></svg>
+    <b>相册还空着</b>
+    <p>把照片放进 <code>source/images/love/</code></p>
+    <p>重新生成后就会出现在这里</p>
+   </div>
+<% } else { %>
+   <div class="lp-gallery">
+<% photos.forEach(function (p, i) { %>
+    <div class="lp-shot" data-index="<%= i %>" role="button" tabindex="0" aria-label="查看 <%= p.caption %>">
+     <img src="<%= p.src %>" alt="<%= p.caption %>" loading="lazy" />
+     <span><%= p.caption %></span>
+    </div>
+<% }); %>
+   </div>
+
+   <div class="lp-viewer" hidden>
+    <img src="" alt="" />
+    <button class="lp-viewer-btn lp-viewer-close" type="button" aria-label="关闭">
+     <svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+    <button class="lp-viewer-btn lp-viewer-prev" type="button" aria-label="上一张">
+     <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="lp-viewer-btn lp-viewer-next" type="button" aria-label="下一张">
+     <svg viewBox="0 0 24 24"><path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+    </button>
+    <p class="lp-viewer-cap"></p>
+   </div>
+
+   <script id="lp-photo-data" type="application/json"><%- JSON.stringify(photos).replace(/</g, '\\u003c') %></script>
+   <script src="/js/love-album.js" defer></script>
+<% } %>
+
+   <footer class="lp-foot">
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= photos.length ? photos.length + ' 张照片' : '未完待续' %></p>
+   </footer>
+  </main>
+
+  <script src="/js/love-days.js" defer></script>
+ </body>
+</html>
