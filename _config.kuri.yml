@@ -319,16 +319,16 @@ love:
         - /images/love/打视频3.jpg
         - /images/love/打视频4.jpg
 
-    - date: '2026-10-03'
-      title: 社团
-      photos:
-        - /images/love/社团.jpg
-
     - date: '2026-09-30'
       title: 合拍
       photos:
         - /images/love/合拍.jpeg
         - /images/love/合拍.mp4
+
+    - date: ""
+      title: 社团
+      photos:
+        - /images/love/社团.jpg
 
     - date: ""
       title: 招新
@@ -437,7 +437,7 @@ love:
     "偷拍.mp4": ""
     "偷拍2.jpeg": ""
     "抖音.jpg": "抖音截图，滤镜开到最大"
-    "上班.jpg": "戴帽子自拍，帽檐上停着一条小鱼"
+    "上班.jpg": ""
     "上班2.jpg": "低下头，小鱼还停在帽子上"
     "上班3.jpg": "帽子和白衬衫，认认真真拍一张"
     "上班4.jpg": "加了猫耳朵，笑得很开"
