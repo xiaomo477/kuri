@@ -209,7 +209,7 @@ social:
 
 # ===== 爱心小屋 =====
 # 首页 /success/ · 相册 /album/ · 点滴 /love/notes/ · 清单 /love/list/
-# 留言 /love/messages/ · 关于 /love/about/
+# 留言 /love/messages/
 love:
   site:
     name: 小哞和小罐 # 顶栏左侧站名（各页通用）
@@ -225,7 +225,7 @@ love:
   timer_label: "" # 首页天数上方那行小字，留空即不显示
 
   # 首页功能卡片；整段删掉则使用内置默认的 4 个
-  # icon 可选：diandian（点滴）/ liuyan（留言）/ loveimg（相册）/ about（关于）
+  # icon 可选：diandian（点滴）/ liuyan（留言）/ loveimg（相册）
   cards:
     - title: 点点滴滴
       desc: 写给你的碎碎念
@@ -268,23 +268,6 @@ love:
       date: 2027-01-01
       done: false
       photo: ""
-
-  # 关于我们 /love/about/，聊天式逐句出现
-  about:
-    title: 小哞和小罐 # 标题里"与 ×× 对话中"的 ××
-    background: "" # 对话区背景图，留空用默认渐变
-    dialog:
-      - 你好呀，我是小罐～
-      - 这个小站只住了两个人
-      - 想再多了解一点，就点下面的按钮吧
-    # reply 可以是单句或数组；next 可写下一组按钮
-    buttons:
-      - text: 我们是谁
-        reply:
-          - 一个爱拍照，一个爱写字
-          - 日子过得很慢，但都记在这里了
-      - text: 随便逛逛
-        reply: 那就随便逛逛吧，别客气～
 
 # Footer / 页脚信息
 author: xiaomo # 版权署名

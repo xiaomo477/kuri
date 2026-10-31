@@ -728,86 +728,6 @@ body.lovepage.lp-home { padding-top: 0; }
 	text-align: center;
 }
 
-/* ---------------- 关于我们 · 对话 ---------------- */
-
-.lp-about-stage {
-	position: relative;
-	width: min(800px, 100% - 2rem);
-	margin: 1.5rem auto 0;
-	padding: 1.5rem;
-	min-height: 380px;
-	border-radius: 2rem;
-	background: var(--lp-about-bg, linear-gradient(150deg, #b9d9e6 0%, #cbb8e8 100%));
-	background-position: center;
-	background-size: cover;
-	box-shadow: 0 8px 12px #ababab87;
-	border: 2px solid rgba(208, 206, 206, .4);
-	overflow: hidden;
-}
-.lp-about-stage::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: rgba(53, 53, 53, .18);
-	pointer-events: none;
-}
-
-.lp-chat {
-	position: relative;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	gap: .8rem;
-	padding: .5rem;
-}
-
-.lp-msg {
-	display: flex;
-	max-width: 78%;
-}
-.lp-msg.is-bot { align-self: flex-start; }
-.lp-msg.is-human { align-self: flex-end; }
-
-.lp-bubble {
-	padding: .7rem 1rem;
-	border-radius: 1rem;
-	color: #6f6f6f;
-	background: #fff;
-	font-size: 1.05rem;
-	line-height: 1.7rem;
-	letter-spacing: .02em;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
-	opacity: 0;
-	transform: translateY(6px);
-	animation: lp-msg-in .35s ease forwards;
-}
-.lp-msg.is-human .lp-bubble { color: #fff; background: #919292; }
-
-@keyframes lp-msg-in {
-	to { opacity: 1; transform: translateY(0); }
-}
-
-.lp-actions {
-	z-index: 2;
-	display: flex;
-	flex-wrap: wrap;
-	gap: .6rem;
-	margin-top: 1.2rem;
-	padding: 0 .5rem;
-}
-.lp-actions button {
-	padding: .5rem 1rem;
-	color: #fff;
-	background: #919191;
-	border: 0;
-	border-radius: 8px;
-	font-family: var(--lp-serif);
-	font-size: 1rem;
-	cursor: pointer;
-	transition: background .18s ease;
-}
-.lp-actions button:hover { background: #7a7a7a; }
-
 /* ---------------- 页脚 ---------------- */
 
 .lp-foot {
@@ -888,10 +808,6 @@ body.lovepage.lp-home { padding-top: 0; }
 	.lp-wishlist { padding: .6rem 1.1rem; }
 	.lp-wish-name { font-size: 1.1rem; }
 	.lp-wish-date { font-size: .9rem; }
-
-	.lp-about-stage { min-height: 420px; border-radius: 1.4rem; padding: 1rem; }
-	.lp-msg { max-width: 88%; }
-	.lp-bubble { font-size: 1rem; line-height: 1.6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
