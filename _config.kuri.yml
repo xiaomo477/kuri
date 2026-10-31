@@ -293,11 +293,12 @@ love:
         - /images/love/给我做的.jpg
         - /images/love/给我做的2.jpg
 
-    - date: ""
+    - date: '2026-10-19'
       title: 偷拍
       photos:
         - /images/love/偷拍.mp4
         - /images/love/偷拍2.jpeg
+        - /images/love/mmexport1792424138762.mp4
 
     - date: ""
       title: 日常
@@ -352,11 +353,6 @@ love:
       title: ""
       photos:
         - /images/love/mmexport1791264900066.jpg
-
-    - date: '2026-10-19'
-      title: ""
-      photos:
-        - /images/love/mmexport1792424138762.mp4
 
     - date: '2026-10-20'
       title: ""
