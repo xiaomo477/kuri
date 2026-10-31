@@ -316,6 +316,97 @@ love:
       photos:
         - /images/love/滑雪.jpg
 
+    # ↓ 下面这些没改名的，按文件名里的时间戳按天分组（date 已填，title 留空）
+    - date: '2026-09-27'
+      title: ""
+      photos:
+        - /images/love/mmexport1790522257772.mp4
+        - /images/love/mmexport1790522351535.mp4
+        - /images/love/mmexport1790522387297.mp4
+        - /images/love/mmexport1790522566494.mp4
+
+    - date: '2026-09-29'
+      title: ""
+      photos:
+        - /images/love/c736c3a9-c783-42c3-bc7f-2d1ee9ae8c021790686839418.jpeg
+
+    - date: '2026-09-30'
+      title: ""
+      photos:
+        - /images/love/8ec41f08-a0bb-43e7-b32a-665c1bb0d1021790739427022.mp4
+
+    - date: '2026-10-03'
+      title: ""
+      photos:
+        - /images/love/Screenshot_2026-10-03-23-25-38-75_e39d2c7de19156b0683cd93e8735f348.jpg
+        - /images/love/Screenshot_2026-10-03-23-26-20-52_e39d2c7de19156b0683cd93e8735f348.jpg
+        - /images/love/mmexport1790957352511.jpg
+
+    - date: '2026-10-04'
+      title: ""
+      photos:
+        - /images/love/Screenshot_2026-10-04-23-57-53-69_e39d2c7de19156b0683cd93e8735f348.jpg
+
+    - date: '2026-10-06'
+      title: ""
+      photos:
+        - /images/love/mmexport1791264900066.jpg
+
+    - date: '2026-10-19'
+      title: ""
+      photos:
+        - /images/love/mmexport1792424138762.mp4
+
+    - date: '2026-10-20'
+      title: ""
+      photos:
+        - /images/love/mmexport1792505999507.jpg
+        - /images/love/mmexport1792506001239.jpg
+        - /images/love/mmexport1792506002762.jpg
+        - /images/love/mmexport1792506004461.jpg
+        - /images/love/mmexport1792506005960.jpg
+        - /images/love/mmexport1792506007494.jpg
+
+    - date: '2026-10-23'
+      title: ""
+      photos:
+        - /images/love/9d94e9c7-f36c-4dde-8a4a-b5a6a3a0ea1f1792735494002.mp4
+        - /images/love/synthesis_f13c8052-6982-44af-a50c-40c48895c710_image_save_local1792735458508.jpg
+
+    - date: '2026-10-24'
+      title: ""
+      photos:
+        - /images/love/mmexport1792823405443.jpg
+        - /images/love/mmexport1792823407294.jpg
+        - /images/love/mmexport1792823425442.jpg
+        - /images/love/mmexport1792823643627.jpg
+
+    - date: '2026-10-25'
+      title: ""
+      photos:
+        - /images/love/mmexport1792890126052.jpg
+        - /images/love/mmexport1792909295995.jpg
+        - /images/love/mmexport1792928612815.mp4
+
+    - date: '2026-10-26'
+      title: ""
+      photos:
+        - /images/love/mmexport1793028130216.jpg
+
+    - date: '2026-10-31'
+      title: ""
+      desc: 时间来自文件名，可能只是保存那天
+      photos:
+        - /images/love/1793424075755.jpg
+        - /images/love/1793424076046.jpg
+        - /images/love/1793424076768.jpg
+        - /images/love/1793424077221.jpg
+        - /images/love/1793424077345.jpg
+        - /images/love/1793424169835.jpg
+        - /images/love/1793424170298.jpg
+        - /images/love/1793424170444.jpg
+        - /images/love/1793424170641.jpg
+
   # 恋爱清单 /love/list/
   # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图
   wishlist:
