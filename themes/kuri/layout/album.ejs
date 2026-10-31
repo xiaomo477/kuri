@@ -4,9 +4,9 @@ layout: false
 <%
   var love = theme.love || {};
   var site = love.site || {};
-  var photos = love_photos();
 
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
   var raw = love.together_since;
   if (raw instanceof Date) {
     raw = raw.getFullYear() + '-' + pad2(raw.getMonth() + 1) + '-' + pad2(raw.getDate());
@@ -15,6 +15,103 @@ layout: false
   var sinceText = m
     ? m[1] + '-' + pad2(+m[2]) + '-' + pad2(+m[3]) + ' ' + pad2(+(m[4] || 0)) + ':' + pad2(+(m[5] || 0)) + ':' + pad2(+(m[6] || 0))
     : '2026-10-23 21:55:00';
+
+  // 日期统一显示成 2026.10.23
+  function dateText(v) {
+    if (!v && v !== 0) return '';
+    var y, mo, d;
+    if (v instanceof Date) {
+      y = v.getFullYear(); mo = v.getMonth() + 1; d = v.getDate();
+    } else {
+      var mm = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(String(v));
+      if (!mm) return String(v);
+      y = +mm[1]; mo = +mm[2]; d = +mm[3];
+    }
+    return y + '.' + pad2(mo) + '.' + pad2(d);
+  }
+
+  // 只写路径时，图注取文件名：01 第一次看海.jpg → 第一次看海；纯数字/UUID 之类留空
+  function captionOf(src) {
+    var name = String(src || '').split('/').pop().split('?')[0];
+    try { name = decodeURIComponent(name); } catch (e) {}
+    var base = name.replace(/\.[^.]+$/, '');
+    var stripped = base.replace(/^[0-9]+[\s._\-—]+/, '').trim();
+    if (stripped !== base) return stripped;
+    if (/^\d+$/.test(base)) return '';
+    if (/^[0-9a-f]{8}-[0-9a-f-]+$/i.test(base)) return '';
+    return base;
+  }
+
+  function normPhoto(p) {
+    if (typeof p === 'string') {
+      return p ? { src: p, caption: captionOf(p) } : null;
+    }
+    if (p && typeof p === 'object') {
+      var src = p.img || p.src || p.url || '';
+      if (!src) return null;
+      return { src: src, caption: p.caption || p.text || captionOf(src) };
+    }
+    return null;
+  }
+
+  // 配置里的分组
+  var groups = [];
+  var rawAlbum = Array.isArray(love.album) ? love.album : [];
+
+  rawAlbum.forEach(function (g) {
+    if (!g) return;
+    var items = (Array.isArray(g.photos) ? g.photos : []).map(normPhoto).filter(Boolean);
+    groups.push({
+      dateText: dateText(g.date),
+      title: g.title || '',
+      desc: g.desc || '',
+      items: items
+    });
+  });
+
+  // 没配置分组时，退回自动扫描 source/images/love/
+  var auto = typeof love_photos === 'function' ? love_photos() : [];
+  var used = {};
+  groups.forEach(function (g) {
+    g.items.forEach(function (it) {
+      used[String(it.src).split('/').pop()] = 1;
+    });
+  });
+
+  if (!groups.length) {
+    if (auto.length) {
+      groups.push({
+        dateText: '',
+        title: '',
+        desc: '',
+        items: auto.map(function (p) { return { src: p.src, caption: p.caption }; })
+      });
+    }
+  } else {
+    // 配置了分组，但目录里还有没归类的照片：单独收进「还没分组」，避免放了图却看不见
+    var loose = auto.filter(function (p) {
+      return !used[String(p.src).split('/').pop()];
+    }).map(function (p) {
+      return { src: p.src, caption: p.caption };
+    });
+    if (loose.length) {
+      groups.push({
+        dateText: '',
+        title: '还没分组',
+        desc: '把照片路径填进 _config.kuri.yml 的 love.album 对应分组，就会挪到上面去',
+        items: loose
+      });
+    }
+  }
+
+  // 摊平成一个数组，供大图查看用；每组照片记住自己在大数组里的下标
+  var photos = [];
+  groups.forEach(function (g) {
+    g.items.forEach(function (it) {
+      it.idx = photos.length;
+      photos.push({ src: it.src, caption: it.caption });
+    });
+  });
 %><!DOCTYPE html>
 <html lang="<%= config.language %>">
  <head>
@@ -43,16 +140,39 @@ layout: false
    <div class="lp-gallery-empty">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 5.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5z"/></svg>
     <b>相册还空着</b>
-    <p>把照片放进 <code>source/images/love/</code></p>
-    <p>重新生成后就会出现在这里</p>
+    <p>在 <code>_config.kuri.yml</code> 的 <code>love.album</code> 里按时间和事件分好组</p>
+    <p>把照片放进 <code>source/images/love/</code> 再填进来</p>
    </div>
 <% } else { %>
-   <div class="lp-gallery">
-<% photos.forEach(function (p, i) { %>
-    <div class="lp-shot" data-index="<%= i %>" role="button" tabindex="0" aria-label="查看 <%= p.caption %>">
-     <img src="<%= p.src %>" alt="<%= p.caption %>" loading="lazy" />
-     <span><%= p.caption %></span>
-    </div>
+   <div class="lp-album">
+<% groups.forEach(function (g) { %>
+    <section class="lp-album-group">
+<% if (g.dateText || g.title) { %>
+     <header class="lp-album-head">
+<% if (g.dateText) { %>
+      <span class="lp-album-date"><%= g.dateText %></span>
+<% } %>
+<% if (g.title) { %>
+      <h2 class="lp-album-event"><%= g.title %></h2>
+<% } %>
+     </header>
+<% } %>
+<% if (g.desc) { %>
+     <p class="lp-album-desc"><%= g.desc %></p>
+<% } %>
+<% if (g.items.length) { %>
+     <div class="lp-gallery">
+<% g.items.forEach(function (it) { %>
+      <div class="lp-shot" data-index="<%= it.idx %>" role="button" tabindex="0" aria-label="查看 <%= it.caption || '照片' %>">
+       <img src="<%= it.src %>" alt="<%= it.caption || '' %>" loading="lazy" />
+<% if (it.caption) { %>
+       <span><%= it.caption %></span>
+<% } %>
+      </div>
+<% }); %>
+     </div>
+<% } %>
+    </section>
 <% }); %>
    </div>
 

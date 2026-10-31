@@ -9,13 +9,12 @@ layout: false
   var avatarL = mateL.avatar || '/images/dog.jpg';
   var avatarR = mateR.avatar || '/images/guan.jpg';
   var heroBg = site.background || '';
-  var timerLabel = love.timer_label || '这是我们一起走过的';
+  var timerLabel = love.timer_label || '';
 
   var cards = love.cards && love.cards.length ? love.cards : [
     { title: '点点滴滴', desc: '写给你的碎碎念', url: '/love/notes/', icon: 'diandian' },
     { title: '留言板', desc: '想说的话都留在这里', url: '/love/messages/', icon: 'liuyan' },
-    { title: '恋爱相册', desc: '把日子过成照片', url: '/album/', icon: 'loveimg' },
-    { title: '关于我们', desc: '关于这个只住两个人的小站', url: '/love/about/', icon: 'about' }
+    { title: '恋爱相册', desc: '把日子过成照片', url: '/album/', icon: 'loveimg' }
   ];
 
   var iconMap = {
@@ -87,7 +86,9 @@ layout: false
   </section>
 
   <section class="lp-time">
+<% if (timerLabel) { %>
    <p class="lp-time-caption"><%= timerLabel %></p>
+<% } %>
    <p class="lp-time-line" data-love-days data-since="<%= sinceText %>">
     <span class="lp-time-prefix">在一起的第</span>
     <b data-love-days-num>1</b>

@@ -16,8 +16,8 @@
 
 	var stageImg = viewer.querySelector('img');
 	var capEl = viewer.querySelector('.lp-viewer-cap');
-	var grid = document.querySelector('.lp-gallery');
-	var shots = grid ? [].slice.call(grid.querySelectorAll('.lp-shot')) : [];
+	// 相册可能分成多栏（时间 + 事件），按 data-index 取全局下标，不能靠 DOM 顺序
+	var shots = [].slice.call(document.querySelectorAll('.lp-shot[data-index]'));
 	var btnClose = viewer.querySelector('.lp-viewer-close');
 	var btnPrev = viewer.querySelector('.lp-viewer-prev');
 	var btnNext = viewer.querySelector('.lp-viewer-next');
@@ -56,7 +56,9 @@
 		if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
 	}
 
-	shots.forEach(function (shot, i) {
+	shots.forEach(function (shot) {
+		var i = parseInt(shot.getAttribute('data-index'), 10);
+		if (isNaN(i)) return;
 		shot.addEventListener('click', function () { open(i); });
 		shot.addEventListener('keydown', function (e) {
 			if (e.key === 'Enter' || e.key === ' ') {

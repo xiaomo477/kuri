@@ -222,7 +222,7 @@ love:
     avatar: /images/guan.jpg # 右侧头像
     name: 小罐 # 右侧名字
   together_since: '2026-10-23 21:55' # 起始时刻，可写 2026-10-23 或 2026-10-23 21:55（务必保留引号）
-  timer_label: 这是我们一起走过的 # 首页天数上方小字
+  timer_label: "" # 首页天数上方那行小字，留空即不显示
 
   # 首页功能卡片；整段删掉则使用内置默认的 4 个
   # icon 可选：diandian（点滴）/ liuyan（留言）/ loveimg（相册）/ about（关于）
@@ -239,10 +239,23 @@ love:
       desc: 把日子过成照片
       url: /album/
       icon: loveimg
-    - title: 关于我们
-      desc: 只住两个人的地方
-      url: /love/about/
-      icon: about
+
+  # 恋爱相册 /album/ —— 按「时间 + 事件」自己分栏
+  # date  日期（务必加引号，避免被解析成日期对象）
+  # title 事件名，显示在分组标题上
+  # desc  可选，一句补充说明
+  # photos 这一组里的照片，两种写法都行：
+  #        - /images/love/01.jpg                     ← 只写路径，图注取文件名
+  #        - img: /images/love/01.jpg                ← 带图注
+  #          caption: 第一次一起吃饭
+  # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
+  album:
+    - date: '2026-10-23'
+      title: 我们在一起了
+      desc: 那天晚上九点五十五
+      photos: []
+        # - img: /images/love/01.jpg
+        #   caption: 第一次牵手
 
   # 恋爱清单 /love/list/
   # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图

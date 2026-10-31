@@ -547,6 +547,75 @@ body.lovepage.lp-home { padding-top: 0; }
 	color: #666;
 }
 
+/* 相册分组：按时间 + 事件分栏 */
+
+.lp-album {
+	margin-top: .5rem;
+}
+
+.lp-album-group {
+	position: relative;
+	margin-top: 2.8rem;
+	padding-left: 1.7rem;
+	border-left: 2px solid rgba(228, 95, 129, .16);
+}
+.lp-album-group:first-child { margin-top: 2rem; }
+
+.lp-album-group::before {
+	content: "";
+	position: absolute;
+	left: -7px;
+	top: .35rem;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #fff;
+	border: 2px solid #ff9db4;
+	box-shadow: 0 0 0 4px rgba(255, 157, 180, .13);
+}
+
+.lp-album-head {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: .65rem;
+}
+
+.lp-album-date {
+	color: #e45f81;
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: .06em;
+	font-variant-numeric: tabular-nums;
+}
+
+.lp-album-event {
+	color: #555;
+	font-size: 1.32rem;
+	font-weight: 700;
+	letter-spacing: .02em;
+}
+
+.lp-album-desc {
+	margin-top: .55rem;
+	color: #9c9c9c;
+	font-size: .95rem;
+	letter-spacing: .04em;
+}
+
+.lp-album-group .lp-gallery {
+	margin-top: 1.4rem;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1.5rem;
+}
+
+.lp-album-blank {
+	margin-top: 1.1rem;
+	color: #c6c6c6;
+	font-size: .95rem;
+	letter-spacing: .04em;
+}
+
 /* 大图查看层 */
 .lp-viewer {
 	position: fixed;
@@ -745,6 +814,13 @@ body.lovepage.lp-home { padding-top: 0; }
 	.lp-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
 	.lp-shot { padding: .8rem .8rem 1rem; }
 	.lp-shot span { font-size: .95rem; }
+
+	.lp-album-group { margin-top: 2rem; padding-left: 1.1rem; }
+	.lp-album-event { font-size: 1.15rem; }
+	.lp-album-group .lp-gallery {
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: .9rem;
+	}
 
 	.lp-viewer { padding: 3.5rem 1rem; }
 	.lp-viewer-prev { left: .5rem; }
