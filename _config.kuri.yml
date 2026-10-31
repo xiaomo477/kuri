@@ -284,6 +284,12 @@ love:
       photos:
         - /images/love/抽象.jpg
 
+    - date: '2026-10-24'
+      title: 给我做的
+      photos:
+        - /images/love/给我做的.jpg
+        - /images/love/给我做的2.jpg
+
     - date: '2026-10-23'
       title: 火锅（臭味相投）
       photos:
@@ -311,6 +317,11 @@ love:
       photos:
         - /images/love/化妆.jpg
 
+    - date: '2026-10-06'
+      title: 手指甲划我
+      photos:
+        - /images/love/手指甲划我.jpg
+
     - date: '2026-10-04'
       title: 打视频
       photos:
@@ -318,6 +329,13 @@ love:
         - /images/love/打视频2.jpg
         - /images/love/打视频3.jpg
         - /images/love/打视频4.jpg
+
+    - date: '2026-10-01'
+      title: 星露谷
+      photos:
+        - /images/love/星露谷.jpg
+        - /images/love/星露谷2.jpg
+        - /images/love/星露谷3.jpg
 
     - date: '2026-09-30'
       title: 合拍
@@ -338,19 +356,6 @@ love:
         - /images/love/招新时候拍的影子.jpg
 
     - date: ""
-      title: 星露谷
-      photos:
-        - /images/love/星露谷.jpg
-        - /images/love/星露谷2.jpg
-        - /images/love/星露谷3.jpg
-
-    - date: ""
-      title: 给我做的
-      photos:
-        - /images/love/给我做的.jpg
-        - /images/love/给我做的2.jpg
-
-    - date: ""
       title: 可爱
       photos:
         - /images/love/可爱.jpg
@@ -359,11 +364,6 @@ love:
       title: 咬我
       photos:
         - /images/love/咬我.jpg
-
-    - date: ""
-      title: 手指甲划我
-      photos:
-        - /images/love/手指甲划我.jpg
 
     - date: ""
       title: 搞抽象
