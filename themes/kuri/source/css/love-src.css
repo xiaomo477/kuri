@@ -520,34 +520,51 @@ body.lovepage.lp-home { padding-top: 0; }
 .lp-shot:hover img,
 .lp-shot:hover video { transform: translateY(-5px); box-shadow: 0 2px 10px #3b3b3bad; }
 
+/* 视频包一层，播放键才能稳稳压在画面正中（直接对卡片定位会算进图注高度，偏下） */
+.lp-shot-media {
+	position: relative;
+	display: block;
+	margin-bottom: 1rem;
+	transition: transform .23s linear;
+}
+.lp-shot-media video { margin-bottom: 0; }
+/* 上浮交给外层，播放键跟着画面一起动，不会错位 */
+.lp-shot:hover .lp-shot-media { transform: translateY(-5px); }
+.lp-shot:hover .lp-shot-media video { transform: none; }
+
 /* 视频角标：一眼能看出这不是照片 */
-.lp-shot-play {
+.lp-shot .lp-shot-play {
 	position: absolute;
-	top: calc(1.3rem + 50%);
+	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -60%);
+	transform: translate(-50%, -50%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 3rem;
 	height: 3rem;
 	border-radius: 50%;
-	background: rgba(20, 20, 20, .55);
+	/* 暗底在夜景视频上几乎看不见，改成浅色磨砂，任何画面上都能认出来 */
+	background: rgba(255, 255, 255, .26);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+	border: 1px solid rgba(255, 255, 255, .55);
 	box-shadow: 0 4px 14px rgba(0, 0, 0, .28);
 	pointer-events: none;
 	transition: background .23s linear, transform .23s linear;
 }
-.lp-shot-play svg {
+.lp-shot .lp-shot-play svg {
 	width: 1.5rem;
 	height: 1.5rem;
 	fill: #fff;
 	margin-left: 2px;
 }
 .lp-shot:hover .lp-shot-play {
-	background: rgba(228, 95, 129, .85);
-	transform: translate(-50%, -60%) scale(1.06);
+	background: rgba(228, 95, 129, .88);
+	border-color: rgba(255, 255, 255, .75);
+	transform: translate(-50%, -50%) scale(1.06);
 }
-.lp-shot span {
+.lp-shot span:not(.lp-shot-play) {
 	display: -webkit-box;
 	overflow: hidden;
 	color: #787878;
@@ -560,7 +577,7 @@ body.lovepage.lp-home { padding-top: 0; }
 }
 /* 图注一行两行长短不一，给个两行的高度，同一行的卡片底边能对齐 */
 .lp-shot > span:not(.lp-shot-play) { min-height: 3em; }
-.lp-shot:hover span { color: #e2e2e2; }
+.lp-shot:hover span:not(.lp-shot-play) { color: #e2e2e2; }
 
 .lp-gallery-empty {
 	margin: 2rem auto 0;
@@ -681,7 +698,14 @@ body.lovepage.lp-home { padding-top: 0; }
 }
 .lp-viewer img[hidden],
 .lp-viewer video[hidden] { display: none; }
-.lp-viewer video { width: min(100%, 1100px); }
+/* 竖屏视频如果写死 width，画面会缩在正中间、两侧留两条大黑框；
+   交给浏览器按原始比例贴合，盒子正好包住画面 */
+.lp-viewer video {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
 
 .lp-viewer-note {
 	position: absolute;
@@ -792,7 +816,10 @@ body.lovepage.lp-home { padding-top: 0; }
 
 	.lp-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
 	.lp-shot { padding: .8rem .8rem 1rem; }
-	.lp-shot span { font-size: .95rem; }
+	.lp-shot span:not(.lp-shot-play) { font-size: .95rem; }
+	/* 窄屏卡片只有一百来像素宽，42px 的播放键会盖住半张脸 */
+	.lp-shot .lp-shot-play { width: 2.4rem; height: 2.4rem; }
+	.lp-shot .lp-shot-play svg { width: 1.1rem; height: 1.1rem; }
 
 	.lp-album-group { margin-top: 2rem; padding-left: 1.1rem; }
 	.lp-album-event { font-size: 1.15rem; }

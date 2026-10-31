@@ -176,8 +176,10 @@ layout: false
 <% var isVideo = it.type === 'video'; %>
       <div class="lp-shot<%= isVideo ? ' is-video' : '' %>" data-index="<%= it.idx %>" data-type="<%= isVideo ? 'video' : 'image' %>" role="button" tabindex="0" aria-label="<%= isVideo ? '播放' : '查看' %> <%= it.caption || (isVideo ? '视频' : '照片') %>">
 <% if (isVideo) { %>
-       <video src="<%= it.src %>#t=0.1" preload="metadata" muted playsinline webkit-playsinline></video>
-       <span class="lp-shot-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72L19 12z"/></svg></span>
+       <span class="lp-shot-media">
+        <video src="<%= it.src %>#t=0.1" preload="metadata" muted playsinline webkit-playsinline></video>
+        <span class="lp-shot-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72L19 12z"/></svg></span>
+       </span>
 <% } else { %>
        <img src="<%= it.src %>" alt="<%= it.caption || '' %>" loading="lazy" />
 <% } %>
