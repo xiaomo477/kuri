@@ -71,7 +71,11 @@
 				stageImg.alt = item.caption || '';
 			}
 		}
-		if (capEl) capEl.textContent = item.caption || '';
+		// 没写图注就不留空行，免得大图下面悬着一条空白
+		if (capEl) {
+			capEl.textContent = item.caption || '';
+			capEl.hidden = !item.caption;
+		}
 		if (noteEl) noteEl.hidden = true;
 	}
 

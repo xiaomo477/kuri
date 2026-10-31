@@ -30,18 +30,6 @@ layout: false
     return y + '.' + pad2(mo) + '.' + pad2(d);
   }
 
-  // 只写路径时，图注取文件名：01 第一次看海.jpg → 第一次看海；纯数字/UUID 之类留空
-  function captionOf(src) {
-    var name = String(src || '').split('/').pop().split('?')[0];
-    try { name = decodeURIComponent(name); } catch (e) {}
-    var base = name.replace(/\.[^.]+$/, '');
-    var stripped = base.replace(/^[0-9]+[\s._\-—]+/, '').trim();
-    if (stripped !== base) return stripped;
-    if (/^\d+$/.test(base)) return '';
-    if (/^[0-9a-f]{8}-[0-9a-f-]+$/i.test(base)) return '';
-    return base;
-  }
-
   function typeOfSrc(src) {
     return /\.(mp4|webm|ogv|mov|m4v)(\?.*)?$/i.test(String(src || '')) ? 'video' : 'image';
   }
@@ -54,14 +42,24 @@ layout: false
     return name;
   }
 
+  // 图注只认手写的字：优先取照片自己的 caption，其次查 love.captions 里按文件名登记的那句，
+  // 都没有就空着。绝不拿文件名凑数，页面上不会冒出 mmexport1792… 这种名字
+  var capMap = (love.captions && typeof love.captions === 'object') ? love.captions : {};
+  function captionFor(p, src) {
+    var own = p && (p.caption || p.text);
+    if (own) return own;
+    var byName = capMap[keyOf(src)];
+    return byName ? byName : '';
+  }
+
   function normPhoto(p) {
     if (typeof p === 'string') {
-      return p ? { src: p, caption: captionOf(p), type: typeOfSrc(p) } : null;
+      return p ? { src: p, caption: captionFor(null, p), type: typeOfSrc(p) } : null;
     }
     if (p && typeof p === 'object') {
       var src = p.img || p.src || p.url || '';
       if (!src) return null;
-      return { src: src, caption: p.caption || p.text || captionOf(src), type: typeOfSrc(src) };
+      return { src: src, caption: captionFor(p, src), type: typeOfSrc(src) };
     }
     return null;
   }
@@ -95,7 +93,7 @@ layout: false
         dateText: '',
         title: '',
         desc: '',
-        items: auto.map(function (p) { return { src: p.src, caption: p.caption, type: p.type }; })
+        items: auto.map(function (p) { return { src: p.src, caption: '', type: p.type }; })
       });
     }
   } else {
@@ -103,7 +101,7 @@ layout: false
     var loose = auto.filter(function (p) {
       return !used[keyOf(p.src)];
     }).map(function (p) {
-      return { src: p.src, caption: p.caption, type: p.type };
+      return { src: p.src, caption: '', type: p.type };
     });
     if (loose.length) {
       groups.push({
