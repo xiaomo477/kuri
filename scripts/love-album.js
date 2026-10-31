@@ -15,7 +15,18 @@ const fs = require('fs');
 const path = require('path');
 
 const PHOTO_DIR = path.join('source', 'images', 'love');
-const EXTS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif', '.bmp'];
+const IMG_EXTS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif', '.bmp'];
+const VIDEO_EXTS = ['.mp4', '.webm', '.ogv', '.mov', '.m4v'];
+const EXTS = IMG_EXTS.concat(VIDEO_EXTS);
+
+function typeOf(name) {
+  const ext = path.extname(name).toLowerCase();
+  if (VIDEO_EXTS.indexOf(ext) !== -1) {
+    // .mov / .m4v 浏览器不一定认，统一按 mp4 的 MIME 交给 <video>
+    return 'video';
+  }
+  return 'image';
+}
 
 let cache = null;
 
@@ -64,6 +75,7 @@ function scan(baseDir) {
       return {
         src: '/images/love/' + encodeURIComponent(name),
         file: name,
+        type: typeOf(name),
         caption: captionOf(name)
       };
     });

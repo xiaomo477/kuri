@@ -42,14 +42,18 @@ layout: false
     return base;
   }
 
+  function typeOfSrc(src) {
+    return /\.(mp4|webm|ogv|mov|m4v)(\?.*)?$/i.test(String(src || '')) ? 'video' : 'image';
+  }
+
   function normPhoto(p) {
     if (typeof p === 'string') {
-      return p ? { src: p, caption: captionOf(p) } : null;
+      return p ? { src: p, caption: captionOf(p), type: typeOfSrc(p) } : null;
     }
     if (p && typeof p === 'object') {
       var src = p.img || p.src || p.url || '';
       if (!src) return null;
-      return { src: src, caption: p.caption || p.text || captionOf(src) };
+      return { src: src, caption: p.caption || p.text || captionOf(src), type: typeOfSrc(src) };
     }
     return null;
   }
@@ -84,7 +88,7 @@ layout: false
         dateText: '',
         title: '',
         desc: '',
-        items: auto.map(function (p) { return { src: p.src, caption: p.caption }; })
+        items: auto.map(function (p) { return { src: p.src, caption: p.caption, type: p.type }; })
       });
     }
   } else {
@@ -92,7 +96,7 @@ layout: false
     var loose = auto.filter(function (p) {
       return !used[String(p.src).split('/').pop()];
     }).map(function (p) {
-      return { src: p.src, caption: p.caption };
+      return { src: p.src, caption: p.caption, type: p.type };
     });
     if (loose.length) {
       groups.push({
@@ -109,9 +113,10 @@ layout: false
   groups.forEach(function (g) {
     g.items.forEach(function (it) {
       it.idx = photos.length;
-      photos.push({ src: it.src, caption: it.caption });
+      photos.push({ src: it.src, caption: it.caption, type: it.type || 'image' });
     });
   });
+  var videoCount = photos.filter(function (p) { return p.type === 'video'; }).length;
 %><!DOCTYPE html>
 <html lang="<%= config.language %>">
  <head>
@@ -163,8 +168,14 @@ layout: false
 <% if (g.items.length) { %>
      <div class="lp-gallery">
 <% g.items.forEach(function (it) { %>
-      <div class="lp-shot" data-index="<%= it.idx %>" role="button" tabindex="0" aria-label="查看 <%= it.caption || '照片' %>">
+<% var isVideo = it.type === 'video'; %>
+      <div class="lp-shot<%= isVideo ? ' is-video' : '' %>" data-index="<%= it.idx %>" data-type="<%= isVideo ? 'video' : 'image' %>" role="button" tabindex="0" aria-label="<%= isVideo ? '播放' : '查看' %> <%= it.caption || (isVideo ? '视频' : '照片') %>">
+<% if (isVideo) { %>
+       <video src="<%= it.src %>#t=0.1" preload="metadata" muted playsinline webkit-playsinline></video>
+       <span class="lp-shot-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72L19 12z"/></svg></span>
+<% } else { %>
        <img src="<%= it.src %>" alt="<%= it.caption || '' %>" loading="lazy" />
+<% } %>
 <% if (it.caption) { %>
        <span><%= it.caption %></span>
 <% } %>
@@ -177,7 +188,8 @@ layout: false
    </div>
 
    <div class="lp-viewer" hidden>
-    <img src="" alt="" />
+    <img class="lp-viewer-img" src="" alt="" />
+    <video class="lp-viewer-video" src="" controls playsinline webkit-playsinline preload="none" hidden></video>
     <button class="lp-viewer-btn lp-viewer-close" type="button" aria-label="关闭">
      <svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
     </button>
@@ -188,6 +200,7 @@ layout: false
      <svg viewBox="0 0 24 24"><path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
     </button>
     <p class="lp-viewer-cap"></p>
+    <p class="lp-viewer-note" hidden>这个视频是 HEVC（H.265）编码，Chrome / Edge 默认解不了。用 Safari 打开，或把视频转成 H.264 再放进来。</p>
    </div>
 
    <script id="lp-photo-data" type="application/json"><%- JSON.stringify(photos).replace(/</g, '\\u003c') %></script>
@@ -195,7 +208,7 @@ layout: false
 <% } %>
 
    <footer class="lp-foot">
-    <p><b><%= site.name || '小哞和小罐' %></b> · <%= photos.length ? photos.length + ' 张照片' : '未完待续' %></p>
+    <p><b><%= site.name || '小哞和小罐' %></b> · <%= photos.length ? photos.length - videoCount + ' 张照片' + (videoCount ? ' · ' + videoCount + ' 个视频' : '') : '未完待续' %></p>
    </footer>
   </main>
 

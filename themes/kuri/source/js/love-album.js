@@ -14,7 +14,9 @@
 	}
 	if (!photos.length) return;
 
-	var stageImg = viewer.querySelector('img');
+	var stageImg = viewer.querySelector('.lp-viewer-img') || viewer.querySelector('img');
+	var stageVideo = viewer.querySelector('.lp-viewer-video');
+	var noteEl = viewer.querySelector('.lp-viewer-note');
 	var capEl = viewer.querySelector('.lp-viewer-cap');
 	// 相册可能分成多栏（时间 + 事件），按 data-index 取全局下标，不能靠 DOM 顺序
 	var shots = [].slice.call(document.querySelectorAll('.lp-shot[data-index]'));
@@ -26,12 +28,51 @@
 	var lastFocus = null;
 	var closeTimer = null;
 
+	function resetStage() {
+		if (stageVideo) {
+			try { stageVideo.pause(); } catch (e) {}
+			stageVideo.hidden = true;
+			stageVideo.removeAttribute('src');
+			stageVideo.load();
+		}
+		if (stageImg) {
+			stageImg.hidden = false;
+			stageImg.removeAttribute('src');
+		}
+	}
+
 	function render(i) {
 		index = (i + photos.length) % photos.length;
 		var item = photos[index];
-		stageImg.src = item.src;
-		stageImg.alt = item.caption || '';
+		var isVideo = item.type === 'video' && stageVideo;
+
+		if (isVideo) {
+			if (stageImg) {
+				stageImg.hidden = true;
+				stageImg.removeAttribute('src');
+			}
+			stageVideo.hidden = false;
+			// 同一个视频直接续播，换视频才重新设 src
+			if (stageVideo.getAttribute('src') !== item.src) {
+				stageVideo.setAttribute('src', item.src);
+			}
+			var played = stageVideo.play();
+			if (played && played.catch) played.catch(function () {});
+		} else {
+			if (stageVideo) {
+				try { stageVideo.pause(); } catch (e) {}
+				stageVideo.hidden = true;
+				stageVideo.removeAttribute('src');
+				stageVideo.load();
+			}
+			if (stageImg) {
+				stageImg.hidden = false;
+				stageImg.src = item.src;
+				stageImg.alt = item.caption || '';
+			}
+		}
 		if (capEl) capEl.textContent = item.caption || '';
+		if (noteEl) noteEl.hidden = true;
 	}
 
 	function open(i) {
@@ -51,7 +92,7 @@
 		clearTimeout(closeTimer);
 		closeTimer = setTimeout(function () {
 			viewer.hidden = true;
-			stageImg.removeAttribute('src');
+			resetStage();
 		}, 220);
 		if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
 	}
@@ -100,4 +141,25 @@
 			render(index + (dx < 0 ? 1 : -1));
 		}
 	}, { passive: true });
+
+	// HEVC 之类的编码浏览器解不了，别只留一块黑，直接说清楚
+	if (stageVideo) {
+		stageVideo.addEventListener('error', function () {
+			if (noteEl && !stageVideo.hidden) noteEl.hidden = false;
+		});
+	}
+
+	// 视频缩略图：元数据到手后跳一帧，强制画出画面；实在取不到就把 <video> 藏掉，
+	// 露出浅色底 + 播放图标，不会变成一块黑
+	[].slice.call(document.querySelectorAll('.lp-shot video')).forEach(function (v) {
+		v.addEventListener('loadedmetadata', function () {
+			if (v.currentTime > 0) return;
+			try {
+				v.currentTime = Math.min(0.15, (v.duration || 1) / 2);
+			} catch (e) {}
+		});
+		v.addEventListener('error', function () {
+			v.style.display = 'none';
+		});
+	});
 })();

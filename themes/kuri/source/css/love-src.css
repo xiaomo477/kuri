@@ -491,6 +491,7 @@ body.lovepage.lp-home { padding-top: 0; }
 }
 
 .lp-shot {
+	position: relative;
 	padding: 1.3rem 1.3rem 1.5rem;
 	border-radius: 1.5rem;
 	background: #fafafa;
@@ -501,7 +502,8 @@ body.lovepage.lp-home { padding-top: 0; }
 	cursor: url(/cur/hover.cur), pointer;
 }
 .lp-shot:hover { background: #494949; }
-.lp-shot img {
+.lp-shot img,
+.lp-shot video {
 	display: block;
 	width: 100%;
 	aspect-ratio: 4 / 5;
@@ -511,8 +513,40 @@ body.lovepage.lp-home { padding-top: 0; }
 	border: 1px solid rgba(208, 206, 206, .4);
 	box-shadow: 0 2px 10px #9393939c;
 	transition: all .23s linear;
+	/* 首帧还没画出来时垫一层浅色渐变，不会露出黑块 */
+	background: linear-gradient(135deg, #fdf1f4 0%, #eef1f6 100%);
+	pointer-events: none;
 }
-.lp-shot:hover img { transform: translateY(-5px); box-shadow: 0 2px 10px #3b3b3bad; }
+.lp-shot:hover img,
+.lp-shot:hover video { transform: translateY(-5px); box-shadow: 0 2px 10px #3b3b3bad; }
+
+/* 视频角标：一眼能看出这不是照片 */
+.lp-shot-play {
+	position: absolute;
+	top: calc(1.3rem + 50%);
+	left: 50%;
+	transform: translate(-50%, -60%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: rgba(20, 20, 20, .55);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .28);
+	pointer-events: none;
+	transition: background .23s linear, transform .23s linear;
+}
+.lp-shot-play svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #fff;
+	margin-left: 2px;
+}
+.lp-shot:hover .lp-shot-play {
+	background: rgba(228, 95, 129, .85);
+	transform: translate(-50%, -60%) scale(1.06);
+}
 .lp-shot span {
 	display: -webkit-box;
 	overflow: hidden;
@@ -634,12 +668,34 @@ body.lovepage.lp-home { padding-top: 0; }
 .lp-viewer[hidden] { display: none; }
 .lp-viewer.is-open { opacity: 1; }
 
-.lp-viewer img {
+.lp-viewer img,
+.lp-viewer video {
 	max-width: 100%;
 	max-height: 100%;
 	border-radius: .6rem;
 	box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+	background: #000;
 }
+.lp-viewer img[hidden],
+.lp-viewer video[hidden] { display: none; }
+.lp-viewer video { width: min(100%, 1100px); }
+
+.lp-viewer-note {
+	position: absolute;
+	bottom: 3.6rem;
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: min(560px, calc(100% - 3rem));
+	padding: .7rem 1.1rem;
+	border-radius: .8rem;
+	background: rgba(228, 95, 129, .16);
+	border: 1px solid rgba(255, 157, 180, .35);
+	color: #ffd9e2;
+	font-size: .9rem;
+	line-height: 1.5;
+	text-align: center;
+}
+.lp-viewer-note[hidden] { display: none; }
 
 .lp-viewer-btn {
 	position: absolute;
