@@ -252,51 +252,18 @@ love:
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
-    - date: '2026-10-31'
-      title: 打视频
+    - date: '2026-10-30'
+      title: 铁锅炖
       photos:
-        - /images/love/打视频.jpg
-        - /images/love/打视频2.jpg
-        - /images/love/打视频3.jpg
-        - /images/love/打视频4.jpg
+        - /images/love/铁锅炖.jpg
+        - /images/love/铁锅炖2.jpg
+        - /images/love/铁锅炖3.jpg
 
-    - date: '2026-10-31'
-      title: 牵手
+    - date: '2026-10-30'
+      title: 茉酸奶
       photos:
-        - /images/love/牵手.jpg
-        - /images/love/牵手2.jpg
-        - /images/love/牵手3.jpg
-        - /images/love/牵手4.jpg
-
-    - date: '2026-10-31'
-      title: 穿搭
-      photos:
-        - /images/love/穿搭.jpg
-
-    - date: '2026-10-31'
-      title: 自拍
-      photos:
-        - /images/love/自拍.jpg
-        - /images/love/自拍.mp4
-        - /images/love/自拍2.jpg
-        - /images/love/自拍2.mp4
-        - /images/love/自拍3.mp4
-        - /images/love/自拍4.mp4
-        - /images/love/自拍5.mp4
-        - /images/love/自拍6.mp4
-        - /images/love/自拍7.mp4
-
-    - date: '2026-10-31'
-      title: 蚊子视角
-      photos:
-        - /images/love/蚊子视角.jpg
-
-    - date: '2026-10-31'
-      title: 偷拍
-      photos:
-        - /images/love/偷拍.jpg
-        - /images/love/偷拍.mp4
-        - /images/love/偷拍2.jpeg
+        - /images/love/茉酸奶.jpg
+        - /images/love/茉酸奶2.jpg
 
     - date: '2026-10-26'
       title: 抖音
@@ -317,6 +284,11 @@ love:
       photos:
         - /images/love/抽象.jpg
 
+    - date: '2026-10-23'
+      title: 火锅（臭味相投）
+      photos:
+        - /images/love/火锅（臭味相投）.jpg
+
     - date: '2026-10-20'
       title: 特效
       photos:
@@ -327,10 +299,25 @@ love:
         - /images/love/特效5.jpg
         - /images/love/特效6.jpg
 
+    - date: '2026-10-19'
+      title: 偷拍
+      photos:
+        - /images/love/偷拍.jpg
+        - /images/love/偷拍.mp4
+        - /images/love/偷拍2.jpeg
+
     - date: '2026-10-06'
       title: 化妆
       photos:
         - /images/love/化妆.jpg
+
+    - date: '2026-10-04'
+      title: 打视频
+      photos:
+        - /images/love/打视频.jpg
+        - /images/love/打视频2.jpg
+        - /images/love/打视频3.jpg
+        - /images/love/打视频4.jpg
 
     - date: '2026-10-03'
       title: 社团
@@ -356,24 +343,6 @@ love:
         - /images/love/星露谷.jpg
         - /images/love/星露谷2.jpg
         - /images/love/星露谷3.jpg
-
-    - date: ""
-      title: 铁锅炖
-      photos:
-        - /images/love/铁锅炖.jpg
-        - /images/love/铁锅炖2.jpg
-        - /images/love/铁锅炖3.jpg
-
-    - date: ""
-      title: 茉酸奶
-      photos:
-        - /images/love/茉酸奶.jpg
-        - /images/love/茉酸奶2.jpg
-
-    - date: ""
-      title: 火锅（臭味相投）
-      photos:
-        - /images/love/火锅（臭味相投）.jpg
 
     - date: ""
       title: 给我做的
@@ -410,6 +379,37 @@ love:
       title: 滑雪
       photos:
         - /images/love/滑雪.jpg
+
+    - date: ""
+      title: 牵手
+      photos:
+        - /images/love/牵手.jpg
+        - /images/love/牵手2.jpg
+        - /images/love/牵手3.jpg
+        - /images/love/牵手4.jpg
+
+    - date: ""
+      title: 穿搭
+      photos:
+        - /images/love/穿搭.jpg
+
+    - date: ""
+      title: 自拍
+      photos:
+        - /images/love/自拍.jpg
+        - /images/love/自拍.mp4
+        - /images/love/自拍2.jpg
+        - /images/love/自拍2.mp4
+        - /images/love/自拍3.mp4
+        - /images/love/自拍4.mp4
+        - /images/love/自拍5.mp4
+        - /images/love/自拍6.mp4
+        - /images/love/自拍7.mp4
+
+    - date: ""
+      title: 蚊子视角
+      photos:
+        - /images/love/蚊子视角.jpg
 
   # 图注（可选）：键写文件名（含扩展名），值写想显示在照片下面的一句话
   # 留空 "" 就什么都不显示；文件名本身永远不会出现在页面上
