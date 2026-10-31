@@ -252,9 +252,99 @@ love:
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
+    - date: '2026-10-31'
+      title: 打视频
+      photos:
+        - /images/love/打视频.jpg
+        - /images/love/打视频2.jpg
+        - /images/love/打视频3.jpg
+        - /images/love/打视频4.jpg
+
+    - date: '2026-10-31'
+      title: 牵手
+      photos:
+        - /images/love/牵手.jpg
+        - /images/love/牵手2.jpg
+        - /images/love/牵手3.jpg
+        - /images/love/牵手4.jpg
+
+    - date: '2026-10-31'
+      title: 穿搭
+      photos:
+        - /images/love/穿搭.jpg
+
+    - date: '2026-10-31'
+      title: 自拍
+      photos:
+        - /images/love/自拍.jpg
+        - /images/love/自拍.mp4
+        - /images/love/自拍2.jpg
+        - /images/love/自拍2.mp4
+        - /images/love/自拍3.mp4
+        - /images/love/自拍4.mp4
+        - /images/love/自拍5.mp4
+        - /images/love/自拍6.mp4
+        - /images/love/自拍7.mp4
+
+    - date: '2026-10-31'
+      title: 蚊子视角
+      photos:
+        - /images/love/蚊子视角.jpg
+
+    - date: '2026-10-31'
+      title: 偷拍
+      photos:
+        - /images/love/偷拍.jpg
+        - /images/love/偷拍.mp4
+        - /images/love/偷拍2.jpeg
+
+    - date: '2026-10-26'
+      title: 抖音
+      photos:
+        - /images/love/抖音.jpg
+
+    - date: '2026-10-25'
+      title: 上班
+      photos:
+        - /images/love/上班.jpg
+        - /images/love/上班2.jpg
+        - /images/love/上班3.jpg
+        - /images/love/上班4.jpg
+        - /images/love/上班5.jpg
+
+    - date: '2026-10-25'
+      title: 抽象
+      photos:
+        - /images/love/抽象.jpg
+
+    - date: '2026-10-20'
+      title: 特效
+      photos:
+        - /images/love/特效.jpg
+        - /images/love/特效2.jpg
+        - /images/love/特效3.jpg
+        - /images/love/特效4.jpg
+        - /images/love/特效5.jpg
+        - /images/love/特效6.jpg
+
+    - date: '2026-10-06'
+      title: 化妆
+      photos:
+        - /images/love/化妆.jpg
+
+    - date: '2026-10-03'
+      title: 社团
+      photos:
+        - /images/love/社团.jpg
+
+    - date: '2026-09-30'
+      title: 合拍
+      photos:
+        - /images/love/合拍.jpeg
+        - /images/love/合拍.mp4
+
     - date: ""
       title: 招新
-      desc: 社团招新那几天，收摊之后的自拍
       photos:
         - /images/love/招新.mp4
         - /images/love/招新2.jpeg
@@ -262,7 +352,6 @@ love:
 
     - date: ""
       title: 星露谷
-      desc: 把农场耕成一朵花，两个人站在中间
       photos:
         - /images/love/星露谷.jpg
         - /images/love/星露谷2.jpg
@@ -282,8 +371,7 @@ love:
         - /images/love/茉酸奶2.jpg
 
     - date: ""
-      title: 火锅
-      desc: 臭味相投
+      title: 火锅（臭味相投）
       photos:
         - /images/love/火锅（臭味相投）.jpg
 
@@ -293,19 +381,24 @@ love:
         - /images/love/给我做的.jpg
         - /images/love/给我做的2.jpg
 
-    - date: '2026-10-19'
-      title: 偷拍
-      photos:
-        - /images/love/偷拍.mp4
-        - /images/love/偷拍2.jpeg
-        - /images/love/mmexport1792424138762.mp4
-
     - date: ""
-      title: 日常
+      title: 可爱
       photos:
         - /images/love/可爱.jpg
+
+    - date: ""
+      title: 咬我
+      photos:
         - /images/love/咬我.jpg
+
+    - date: ""
+      title: 手指甲划我
+      photos:
         - /images/love/手指甲划我.jpg
+
+    - date: ""
+      title: 搞抽象
+      photos:
         - /images/love/搞抽象.mp4
 
     - date: ""
@@ -318,154 +411,68 @@ love:
       photos:
         - /images/love/滑雪.jpg
 
-    # ↓ 下面这些没改名的，按文件名里的时间戳按天分组（date 已填，title 留空）
-    - date: '2026-09-27'
-      title: ""
-      photos:
-        - /images/love/mmexport1790522257772.mp4
-        - /images/love/mmexport1790522351535.mp4
-        - /images/love/mmexport1790522387297.mp4
-        - /images/love/mmexport1790522566494.mp4
-
-    - date: '2026-09-29'
-      title: ""
-      photos:
-        - /images/love/c736c3a9-c783-42c3-bc7f-2d1ee9ae8c021790686839418.jpeg
-
-    - date: '2026-09-30'
-      title: ""
-      photos:
-        - /images/love/8ec41f08-a0bb-43e7-b32a-665c1bb0d1021790739427022.mp4
-
-    - date: '2026-10-03'
-      title: ""
-      photos:
-        - /images/love/Screenshot_2026-10-03-23-25-38-75_e39d2c7de19156b0683cd93e8735f348.jpg
-        - /images/love/Screenshot_2026-10-03-23-26-20-52_e39d2c7de19156b0683cd93e8735f348.jpg
-        - /images/love/mmexport1790957352511.jpg
-
-    - date: '2026-10-04'
-      title: ""
-      photos:
-        - /images/love/Screenshot_2026-10-04-23-57-53-69_e39d2c7de19156b0683cd93e8735f348.jpg
-
-    - date: '2026-10-06'
-      title: ""
-      photos:
-        - /images/love/mmexport1791264900066.jpg
-
-    - date: '2026-10-20'
-      title: ""
-      photos:
-        - /images/love/mmexport1792505999507.jpg
-        - /images/love/mmexport1792506001239.jpg
-        - /images/love/mmexport1792506002762.jpg
-        - /images/love/mmexport1792506004461.jpg
-        - /images/love/mmexport1792506005960.jpg
-        - /images/love/mmexport1792506007494.jpg
-
-    - date: '2026-10-23'
-      title: ""
-      photos:
-        - /images/love/9d94e9c7-f36c-4dde-8a4a-b5a6a3a0ea1f1792735494002.mp4
-        - /images/love/synthesis_f13c8052-6982-44af-a50c-40c48895c710_image_save_local1792735458508.jpg
-
-    - date: '2026-10-24'
-      title: ""
-      photos:
-        - /images/love/mmexport1792823405443.jpg
-        - /images/love/mmexport1792823407294.jpg
-        - /images/love/mmexport1792823425442.jpg
-        - /images/love/mmexport1792823643627.jpg
-
-    - date: '2026-10-25'
-      title: ""
-      photos:
-        - /images/love/mmexport1792890126052.jpg
-        - /images/love/mmexport1792909295995.jpg
-        - /images/love/mmexport1792928612815.mp4
-
-    - date: '2026-10-26'
-      title: ""
-      photos:
-        - /images/love/mmexport1793028130216.jpg
-
-    - date: '2026-10-31'
-      title: ""
-      desc: 时间来自文件名，可能只是保存那天
-      photos:
-        - /images/love/1793424075755.jpg
-        - /images/love/1793424076046.jpg
-        - /images/love/1793424076768.jpg
-        - /images/love/1793424077221.jpg
-        - /images/love/1793424077345.jpg
-        - /images/love/1793424169835.jpg
-        - /images/love/1793424170298.jpg
-        - /images/love/1793424170444.jpg
-        - /images/love/1793424170641.jpg
-
   # 图注（可选）：键写文件名（含扩展名），值写想显示在照片下面的一句话
   # 留空 "" 就什么都不显示；文件名本身永远不会出现在页面上
   captions:
-    "招新.mp4": "招新那天晚上，风把头发吹乱了"
-    "招新2.jpeg": "夜里的自拍，还画了兔耳朵和小眼镜"
-    "招新时候拍的影子.jpg": "路上只剩我们两个的影子"
-    "星露谷.jpg": "把田耕成一朵花，两个人站在中间"
-    "星露谷2.jpg": "站在自家门口，还什么都没种"
-    "星露谷3.jpg": "种了一整片心形的田，那天下着雨"
-    "铁锅炖.jpg": "锅边贴了一圈玉米饼，先拍一张"
-    "铁锅炖2.jpg": "锅还没开，手先牵上了"
-    "铁锅炖3.jpg": "吃完戴上围兜，两个小恶魔"
-    "茉酸奶.jpg": "万圣节联名的小卡片，集齐两张还送纸袋"
-    "茉酸奶2.jpg": "一人一张，摆在酸奶前面拍"
-    "火锅（臭味相投）.jpg": "鸳鸯锅吃到底，只剩两池汤"
-    "给我做的.jpg": "抹茶酸奶，牛油果粒堆到杯口"
-    "给我做的2.jpg": "喝到最后还剩半杯料"
-    "偷拍.mp4": "被偷拍的瞬间，手还挡在脸上"
-    "偷拍2.jpeg": "夜里被偷拍，还贴了只猫耳朵"
-    "可爱.jpg": "夜里把脸埋进手里"
-    "咬我.jpg": "咬完留下的牙印，一整个圆"
-    "手指甲划我.jpg": "指甲划出来的两道红"
-    "搞抽象.mp4": "用抖音的 AI 换了长发，笑到不行"
-    "正装.jpg": "穿正装那天，阳光从背后漏下来"
-    "滑雪.jpg": "夜场坐缆车上去，雪道亮着一排灯"
-    "mmexport1790522257772.mp4": "加了贴纸的自拍短片，嘴角顶着两颗方块"
-    "mmexport1790522351535.mp4": "手遮住半张脸，星星撒了一身"
-    "mmexport1790522387297.mp4": "抱着小幽灵玩偶拍的一段"
-    "mmexport1790522566494.mp4": "对着手机屏，从别人镜头里看自己"
-    "c736c3a9-c783-42c3-bc7f-2d1ee9ae8c021790686839418.jpeg": "两张脸挤在一起，贴纸写着「萌混过关了」"
-    "8ec41f08-a0bb-43e7-b32a-665c1bb0d1021790739427022.mp4": "路边随手拍的，头上顶着一张猪鼻子表情"
-    "Screenshot_2026-10-03-23-25-38-75_e39d2c7de19156b0683cd93e8735f348.jpg": "躺床上把镜头凑到鼻子前"
-    "Screenshot_2026-10-03-23-26-20-52_e39d2c7de19156b0683cd93e8735f348.jpg": "又凑近一点，睫毛都糊了"
-    "mmexport1790957352511.jpg": "躺着，一只手伸到脸边，腕上贴着纱布"
-    "Screenshot_2026-10-04-23-57-53-69_e39d2c7de19156b0683cd93e8735f348.jpg": "同一个角度，这次连着鼻子一起红了"
-    "mmexport1791264900066.jpg": "脸怼到镜头前，嘴嘟起来"
-    "mmexport1792424138762.mp4": "躺着的自拍短片，一只小猫贴在脸上"
-    "mmexport1792505999507.jpg": "兔耳朵滤镜，正对着镜头"
-    "mmexport1792506001239.jpg": "兔耳朵滤镜，头往旁边一歪"
-    "mmexport1792506002762.jpg": "兔耳朵滤镜，盯着看"
-    "mmexport1792506004461.jpg": "兔耳朵滤镜，侧过脸"
-    "mmexport1792506005960.jpg": "兔耳朵滤镜，笑得眼睛没了"
-    "mmexport1792506007494.jpg": "兔耳朵滤镜，一口气拍了六张"
-    "9d94e9c7-f36c-4dde-8a4a-b5a6a3a0ea1f1792735494002.mp4": "躺着拍的短片，头发散了一枕头"
-    "synthesis_f13c8052-6982-44af-a50c-40c48895c710_image_save_local1792735458508.jpg": "手搭在额头上，角落贴了只小白猫"
-    "mmexport1792823405443.jpg": "戴帽子自拍，帽檐上停着一条小鱼"
-    "mmexport1792823407294.jpg": "低下头，小鱼还停在帽子上"
-    "mmexport1792823425442.jpg": "帽子和白衬衫，认认真真拍一张"
-    "mmexport1792823643627.jpg": "加了猫耳朵，笑得很开"
-    "mmexport1792890126052.jpg": "张嘴大笑，兔子贴纸压在额头上"
-    "mmexport1792909295995.jpg": "拼了一张：这边比耶，那边是张猴子脸"
-    "mmexport1792928612815.mp4": "躺着拍的短片，光落在脸上"
-    "mmexport1793028130216.jpg": "抖音截图，滤镜开到最大"
-    "1793424075755.jpg": "举着手机拍，屏幕里是自己的脸"
-    "1793424076046.jpg": "站在门口，卫衣大得能盖到膝盖"
-    "1793424076768.jpg": "又凑近镜头，只剩鼻子和眼睛"
-    "1793424077221.jpg": "坐在地上，两只手扣在一起"
-    "1793424077345.jpg": ""
-    "1793424169835.jpg": "十指扣着，谁也没松开"
-    "1793424170298.jpg": "手心贴手心"
-    "1793424170444.jpg": "手挡住半张脸，左上角贴了个表情"
-    "1793424170641.jpg": "还是两只手，地上落了几片叶子"
+    "打视频.jpg": ""
+    "打视频2.jpg": "同一个角度，这次连着鼻子一起红了"
+    "打视频3.jpg": "又凑近一点，睫毛都糊了"
+    "打视频4.jpg": "躺床上把镜头凑到鼻子前"
+    "牵手.jpg": "坐在地上，两只手扣在一起"
+    "牵手2.jpg": "十指扣着，谁也没松开"
+    "牵手3.jpg": "手心贴手心"
+    "牵手4.jpg": "还是两只手，地上落了几片叶子"
+    "穿搭.jpg": "站在门口，卫衣大得能盖到膝盖"
+    "自拍.jpg": "举着手机拍，屏幕里是自己的脸"
+    "自拍.mp4": "躺着拍的短片，头发散了一枕头"
+    "自拍2.jpg": "手搭在额头上，角落贴了只小白猫"
+    "自拍2.mp4": ""
+    "自拍3.mp4": "手遮住半张脸，星星撒了一身"
+    "自拍4.mp4": "抱着小幽灵玩偶拍的一段"
+    "自拍5.mp4": "对着手机屏，从别人镜头里看自己"
+    "自拍6.mp4": "躺着的自拍短片，一只小猫贴在脸上"
+    "自拍7.mp4": "躺着拍的短片，光落在脸上"
+    "蚊子视角.jpg": "又凑近镜头，只剩鼻子和眼睛"
+    "偷拍.jpg": "手挡住半张脸，左上角贴了个表情"
+    "偷拍.mp4": ""
+    "偷拍2.jpeg": ""
+    "抖音.jpg": "抖音截图，滤镜开到最大"
+    "上班.jpg": "戴帽子自拍，帽檐上停着一条小鱼"
+    "上班2.jpg": "低下头，小鱼还停在帽子上"
+    "上班3.jpg": "帽子和白衬衫，认认真真拍一张"
+    "上班4.jpg": "加了猫耳朵，笑得很开"
+    "上班5.jpg": "拼了一张：这边比耶，那边是张猴子脸"
+    "抽象.jpg": "张嘴大笑，兔子贴纸压在额头上"
+    "特效.jpg": "兔耳朵滤镜，正对着镜头"
+    "特效2.jpg": "兔耳朵滤镜，头往旁边一歪"
+    "特效3.jpg": "兔耳朵滤镜，盯着看"
+    "特效4.jpg": "兔耳朵滤镜，侧过脸"
+    "特效5.jpg": "兔耳朵滤镜，笑得眼睛没了"
+    "特效6.jpg": "兔耳朵滤镜，一口气拍了六张"
+    "化妆.jpg": "脸怼到镜头前，嘴嘟起来"
+    "社团.jpg": "躺着，一只手伸到脸边，腕上贴着纱布"
+    "合拍.jpeg": "两张脸挤在一起，贴纸写着「萌混过关了」"
+    "合拍.mp4": "路边随手拍的，头上顶着一张猪鼻子表情"
+    "招新.mp4": "招新那天晚上"
+    "招新2.jpeg": "夜里的自拍"
+    "招新时候拍的影子.jpg": "我们两个的影子"
+    "星露谷.jpg": ""
+    "星露谷2.jpg": ""
+    "星露谷3.jpg": "种了一整片心形的田"
+    "铁锅炖.jpg": ""
+    "铁锅炖2.jpg": ""
+    "铁锅炖3.jpg": ""
+    "茉酸奶.jpg": ""
+    "茉酸奶2.jpg": ""
+    "火锅（臭味相投）.jpg": ""
+    "给我做的.jpg": ""
+    "给我做的2.jpg": ""
+    "可爱.jpg": ""
+    "咬我.jpg": ""
+    "手指甲划我.jpg": ""
+    "搞抽象.mp4": ""
+    "正装.jpg": ""
+    "滑雪.jpg": ""
 
   # 恋爱清单 /love/list/
   # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图
