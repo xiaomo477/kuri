@@ -252,25 +252,25 @@ love:
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
-    - date: '2026-10-30'
+    - date: "2026-10-30"
       title: 铁锅炖
       photos:
         - /images/love/铁锅炖.jpg
         - /images/love/铁锅炖2.jpg
         - /images/love/铁锅炖3.jpg
 
-    - date: '2026-10-30'
+    - date: "2026-10-30"
       title: 茉酸奶
       photos:
         - /images/love/茉酸奶.jpg
         - /images/love/茉酸奶2.jpg
 
-    - date: '2026-10-26'
+    - date: "2026-10-26"
       title: 抖音
       photos:
         - /images/love/抖音.jpg
 
-    - date: '2026-10-25'
+    - date: "2026-10-25"
       title: 上班
       photos:
         - /images/love/上班.jpg
@@ -279,23 +279,23 @@ love:
         - /images/love/上班4.jpg
         - /images/love/上班5.jpg
 
-    - date: '2026-10-25'
+    - date: "2026-10-25"
       title: 抽象
       photos:
         - /images/love/抽象.jpg
 
-    - date: '2026-10-24'
+    - date: "2026-10-24"
       title: 给我做的
       photos:
         - /images/love/给我做的.jpg
         - /images/love/给我做的2.jpg
 
-    - date: '2026-10-23'
+    - date: "2026-10-23"
       title: 火锅（臭味相投）
       photos:
         - /images/love/火锅（臭味相投）.jpg
 
-    - date: '2026-10-20'
+    - date: "2026-10-20"
       title: 特效
       photos:
         - /images/love/特效.jpg
@@ -305,24 +305,25 @@ love:
         - /images/love/特效5.jpg
         - /images/love/特效6.jpg
 
-    - date: '2026-10-19'
+    - date: "2026-10-19"
       title: 偷拍
       photos:
+        - /images/love/可爱.jpg
         - /images/love/偷拍.jpg
         - /images/love/偷拍.mp4
         - /images/love/偷拍2.jpeg
 
-    - date: '2026-10-06'
+    - date: "2026-10-06"
       title: 化妆
       photos:
         - /images/love/化妆.jpg
 
-    - date: '2026-10-06'
+    - date: "2026-10-06"
       title: 手指甲划我
       photos:
         - /images/love/手指甲划我.jpg
 
-    - date: '2026-10-04'
+    - date: "2026-10-04"
       title: 打视频
       photos:
         - /images/love/打视频.jpg
@@ -330,14 +331,14 @@ love:
         - /images/love/打视频3.jpg
         - /images/love/打视频4.jpg
 
-    - date: '2026-10-01'
+    - date: "2026-10-01"
       title: 星露谷
       photos:
         - /images/love/星露谷.jpg
         - /images/love/星露谷2.jpg
         - /images/love/星露谷3.jpg
 
-    - date: '2026-09-30'
+    - date: "2026-09-30"
       title: 合拍
       photos:
         - /images/love/合拍.jpeg
@@ -354,11 +355,6 @@ love:
         - /images/love/招新.mp4
         - /images/love/招新2.jpeg
         - /images/love/招新时候拍的影子.jpg
-
-    - date: ""
-      title: 可爱
-      photos:
-        - /images/love/可爱.jpg
 
     - date: ""
       title: 咬我
