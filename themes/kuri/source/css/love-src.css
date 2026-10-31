@@ -552,11 +552,14 @@ body.lovepage.lp-home { padding-top: 0; }
 	overflow: hidden;
 	color: #787878;
 	font-size: 1.05rem;
+	line-height: 1.5;
 	letter-spacing: 1px;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	transition: color .23s linear;
 }
+/* 图注一行两行长短不一，给个两行的高度，同一行的卡片底边能对齐 */
+.lp-shot > span:not(.lp-shot-play) { min-height: 3em; }
 .lp-shot:hover span { color: #e2e2e2; }
 
 .lp-gallery-empty {
