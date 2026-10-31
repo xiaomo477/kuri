@@ -221,7 +221,7 @@ love:
   right:
     avatar: /images/guan.jpg # 右侧头像
     name: 小罐 # 右侧名字
-  together_since: '2026-10-23 21:55' # 起始时刻，可写 2026-10-23 或 2026-10-23 21:55（务必保留引号）
+  together_since: "2026-10-23 21:55" # 起始时刻，可写 2026-10-23 或 2026-10-23 21:55（务必保留引号）
   timer_label: "" # 首页天数上方那行小字，留空即不显示
 
   # 首页功能卡片；整段删掉则使用内置默认的 4 个
@@ -241,7 +241,7 @@ love:
       icon: loveimg
 
   # 恋爱相册 /album/ —— 按「时间 + 事件」自己分栏
-  # date  日期（务必加引号，避免被解析成日期对象）
+  # date  日期（务必加引号，避免被解析成日期对象）；暂时不知道就写 ""，标题只显示事件名
   # title 事件名，显示在分组标题上
   # desc  可选，一句补充说明
   # photos 这一组里的照片，两种写法都行：
@@ -249,13 +249,72 @@ love:
   #        - img: /images/love/01.jpg                ← 带图注
   #          caption: 第一次一起吃饭
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
+  # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
-    - date: '2026-10-23'
-      title: 我们在一起了
-      desc: 那天晚上九点五十五
-      photos: []
-        # - img: /images/love/01.jpg
-        #   caption: 第一次牵手
+    - date: ""
+      title: 招新
+      desc: 社团招新那几天，收摊之后的自拍
+      photos:
+        - /images/love/招新.mp4
+        - /images/love/招新2.jpeg
+        - /images/love/招新时候拍的影子.jpg
+
+    - date: ""
+      title: 星露谷
+      desc: 把农场耕成一朵花，两个人站在中间
+      photos:
+        - /images/love/星露谷.jpg
+        - /images/love/星露谷2.jpg
+        - /images/love/星露谷3.jpg
+
+    - date: ""
+      title: 铁锅炖
+      photos:
+        - /images/love/铁锅炖.jpg
+        - /images/love/铁锅炖2.jpg
+        - /images/love/铁锅炖3.jpg
+
+    - date: ""
+      title: 茉酸奶
+      photos:
+        - /images/love/茉酸奶.jpg
+        - /images/love/茉酸奶2.jpg
+
+    - date: ""
+      title: 火锅
+      desc: 臭味相投
+      photos:
+        - /images/love/火锅（臭味相投）.jpg
+
+    - date: ""
+      title: 给我做的
+      photos:
+        - /images/love/给我做的.jpg
+        - /images/love/给我做的2.jpg
+
+    - date: ""
+      title: 偷拍
+      photos:
+        - /images/love/偷拍.mp4
+        - /images/love/偷拍2.jpeg
+
+    - date: ""
+      title: 日常
+      photos:
+        - /images/love/可爱.jpg
+        - /images/love/咬我.jpg
+        - /images/love/手指甲划我.jpg
+        - /images/love/搞抽象.mp4
+
+    - date: ""
+      title: 正装
+      photos:
+        - /images/love/正装.jpg
+
+    - date: ""
+      title: 滑雪
+      photos:
+        - /images/love/滑雪.jpg
 
   # 恋爱清单 /love/list/
   # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图

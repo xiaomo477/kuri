@@ -46,6 +46,14 @@ layout: false
     return /\.(mp4|webm|ogv|mov|m4v)(\?.*)?$/i.test(String(src || '')) ? 'video' : 'image';
   }
 
+  // 判断「这张图属于哪个分组」时用的键：统一解码，避免配置里写中文、
+  // 扫描出来是 %E6%98%9F… 编码串，两边对不上导致同一张图重复出现
+  function keyOf(src) {
+    var name = String(src || '').split('#')[0].split('/').pop();
+    try { name = decodeURIComponent(name); } catch (e) {}
+    return name;
+  }
+
   function normPhoto(p) {
     if (typeof p === 'string') {
       return p ? { src: p, caption: captionOf(p), type: typeOfSrc(p) } : null;
@@ -61,7 +69,6 @@ layout: false
   // 配置里的分组
   var groups = [];
   var rawAlbum = Array.isArray(love.album) ? love.album : [];
-
   rawAlbum.forEach(function (g) {
     if (!g) return;
     var items = (Array.isArray(g.photos) ? g.photos : []).map(normPhoto).filter(Boolean);
@@ -78,7 +85,7 @@ layout: false
   var used = {};
   groups.forEach(function (g) {
     g.items.forEach(function (it) {
-      used[String(it.src).split('/').pop()] = 1;
+      used[keyOf(it.src)] = 1;
     });
   });
 
@@ -94,7 +101,7 @@ layout: false
   } else {
     // 配置了分组，但目录里还有没归类的照片：单独收进「还没分组」，避免放了图却看不见
     var loose = auto.filter(function (p) {
-      return !used[String(p.src).split('/').pop()];
+      return !used[keyOf(p.src)];
     }).map(function (p) {
       return { src: p.src, caption: p.caption, type: p.type };
     });
