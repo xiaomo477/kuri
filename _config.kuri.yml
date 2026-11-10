@@ -252,6 +252,17 @@ love:
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
+    - date: "2026-11-09"
+      title: 拼豆
+      photos:
+        - /images/love/拼豆.jpg
+        - /images/love/给我的拼豆.jpg
+
+    - date: "2026-11-09"
+      title: 自嘲熊
+      photos:
+        - /images/love/买的想要的自嘲熊.jpg
+
     - date: "2026-10-30"
       title: 铁锅炖
       photos:
@@ -396,6 +407,7 @@ love:
         - /images/love/自拍.mp4
         - /images/love/自拍2.jpg
         - /images/love/自拍2.mp4
+        - /images/love/自拍3.jpg
         - /images/love/自拍3.mp4
         - /images/love/自拍4.mp4
         - /images/love/自拍5.mp4
