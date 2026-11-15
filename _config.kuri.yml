@@ -24,9 +24,6 @@ sidebar:
     友链:
       - /friends
       - 友情链接
-    渲染实验室:
-      - /lab/
-      - 前端渲染页面演示
 
   AI工具:
     豆包:
@@ -252,11 +249,33 @@ love:
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
+    - date: "2026-11-14"
+      title: 罐头
+      photos:
+        - /images/love/罐头（11.14）.jpg
+
+    - date: "2026-11-13"
+      title: 烤肉
+      photos:
+        - /images/love/烤肉（11.13）.jpg
+        - /images/love/烤肉店的猫（11.13）.jpg
+
+    - date: "2026-11-13"
+      title: 巧克力
+      photos:
+        - /images/love/巧克力（11.13）.jpg
+
     - date: "2026-11-09"
       title: 拼豆
       photos:
         - /images/love/拼豆.jpg
         - /images/love/给我的拼豆.jpg
+        - /images/love/拼豆（11.9）.jpg
+
+    - date: "2026-11-09"
+      title: 下班
+      photos:
+        - /images/love/下班（11.9）.jpg
 
     - date: "2026-11-09"
       title: 自嘲熊
