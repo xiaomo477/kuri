@@ -241,265 +241,273 @@ love:
   # date  日期（务必加引号，避免被解析成日期对象）；暂时不知道就写 ""，标题只显示事件名
   # title 事件名，显示在分组标题上
   # desc  可选，一句补充说明（写在分组标题下面）
-  # photos 这一组里的照片，两种写法：
-  #        - /images/love/01.jpg                     ← 只写路径，照片下面不显示任何字
-  #        - img: /images/love/01.jpg                ← 想自己写一句话，就用这种
-  #          caption: 第一次一起吃饭
-  # 文件名不会出现在页面上：写了 caption 就显示 caption，不写就空着
+  # photos 这一组里的照片。两种写法：
+  #    - /images/love/01.jpg              ← 只写路径，照片下面空着，什么都不显示
+  #    - img: /images/love/01.jpg         ← 想在照片下面写一句话，用这种，然后填下一行 caption
+  #      caption: 第一次一起吃饭
+  # caption 留空（写 ""）就是没有图注；文件名永远不会出现在页面上
   # 整段留空（album: []）则退回自动扫描 source/images/love/ 平铺显示
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
     - date: "2026-11-14"
       title: 罐头
       photos:
-        - /images/love/罐头（11.14）.jpg
+        - img: /images/love/罐头（11.14）.jpg
+          caption: "还给了我一个"
 
     - date: "2026-11-13"
       title: 烤肉
       photos:
-        - /images/love/烤肉（11.13）.jpg
-        - /images/love/烤肉店的猫（11.13）.jpg
+        - img: /images/love/烤肉（11.13）.jpg
+          caption: "吃烤肉"
+        - img: /images/love/烤肉店的猫（11.13）.jpg
+          caption: "烤肉店的猫"
 
     - date: "2026-11-13"
       title: 巧克力
       photos:
-        - /images/love/巧克力（11.13）.jpg
+        - img: /images/love/巧克力（11.13）.jpg
+          caption: "学校偶遇了巧克力"
 
     - date: "2026-11-09"
       title: 拼豆
       photos:
-        - /images/love/拼豆.jpg
-        - /images/love/给我的拼豆.jpg
-        - /images/love/拼豆（11.9）.jpg
+        - img: /images/love/拼豆.jpg
+          caption: ""
+        - img: /images/love/给我的拼豆.jpg
+          caption: "给我的拼豆"
+        - img: /images/love/拼豆（11.9）.jpg
+          caption: "立体爪刀"
 
     - date: "2026-11-09"
       title: 下班
       photos:
-        - /images/love/下班（11.9）.jpg
+        - img: /images/love/下班（11.9）.jpg
+          caption: ""
 
     - date: "2026-11-09"
       title: 自嘲熊
       photos:
-        - /images/love/买的想要的自嘲熊.jpg
+        - img: /images/love/买的想要的自嘲熊.jpg
+          caption: "买的想要的自嘲熊"
 
     - date: "2026-10-30"
       title: 铁锅炖
       photos:
-        - /images/love/铁锅炖.jpg
-        - /images/love/铁锅炖2.jpg
-        - /images/love/铁锅炖3.jpg
+        - img: /images/love/铁锅炖.jpg
+          caption: "铁锅炖"
+        - img: /images/love/铁锅炖2.jpg
+          caption: "铁锅炖"
+        - img: /images/love/铁锅炖3.jpg
+          caption: "铁锅炖"
 
     - date: "2026-10-30"
       title: 茉酸奶
       photos:
-        - /images/love/茉酸奶.jpg
-        - /images/love/茉酸奶2.jpg
+        - img: /images/love/茉酸奶.jpg
+          caption: ""
+        - img: /images/love/茉酸奶2.jpg
+          caption: ""
 
     - date: "2026-10-26"
       title: 抖音
       photos:
-        - /images/love/抖音.jpg
+        - img: /images/love/抖音.jpg
+          caption: ""
 
     - date: "2026-10-25"
       title: 上班
       photos:
-        - /images/love/上班.jpg
-        - /images/love/上班2.jpg
-        - /images/love/上班3.jpg
-        - /images/love/上班4.jpg
-        - /images/love/上班5.jpg
+        - img: /images/love/上班.jpg
+          caption: ""
+        - img: /images/love/上班2.jpg
+          caption: ""
+        - img: /images/love/上班3.jpg
+          caption: ""
+        - img: /images/love/上班4.jpg
+          caption: ""
+        - img: /images/love/上班5.jpg
+          caption: ""
 
     - date: "2026-10-25"
       title: 抽象
       photos:
-        - /images/love/抽象.jpg
+        - img: /images/love/抽象.jpg
+          caption: ""
 
     - date: "2026-10-24"
       title: 给我做的
       photos:
-        - /images/love/给我做的.jpg
-        - /images/love/给我做的2.jpg
+        - img: /images/love/给我做的.jpg
+          caption: ""
+        - img: /images/love/给我做的2.jpg
+          caption: ""
 
     - date: "2026-10-23"
       title: 火锅（臭味相投）
       photos:
-        - /images/love/火锅（臭味相投）.jpg
+        - img: /images/love/火锅（臭味相投）.jpg
+          caption: "辣锅煮熟过一遍清汤"
 
     - date: "2026-10-20"
       title: 特效
       photos:
-        - /images/love/特效.jpg
-        - /images/love/特效2.jpg
-        - /images/love/特效3.jpg
-        - /images/love/特效4.jpg
-        - /images/love/特效5.jpg
-        - /images/love/特效6.jpg
+        - img: /images/love/特效.jpg
+          caption: ""
+        - img: /images/love/特效2.jpg
+          caption: ""
+        - img: /images/love/特效3.jpg
+          caption: ""
+        - img: /images/love/特效4.jpg
+          caption: ""
+        - img: /images/love/特效5.jpg
+          caption: ""
+        - img: /images/love/特效6.jpg
+          caption: ""
 
     - date: "2026-10-19"
       title: 偷拍
       photos:
-        - /images/love/可爱.jpg
-        - /images/love/偷拍.jpg
-        - /images/love/偷拍.mp4
-        - /images/love/偷拍2.jpeg
+        - img: /images/love/可爱.jpg
+          caption: ""
+        - img: /images/love/偷拍.jpg
+          caption: ""
+        - img: /images/love/偷拍.mp4
+          caption: ""
+        - img: /images/love/偷拍2.jpeg
+          caption: ""
 
     - date: "2026-10-06"
       title: 化妆
       photos:
-        - /images/love/化妆.jpg
+        - img: /images/love/化妆.jpg
+          caption: ""
 
     - date: "2026-10-06"
       title: 手指甲划我
       photos:
-        - /images/love/手指甲划我.jpg
+        - img: /images/love/手指甲划我.jpg
+          caption: "手指甲给我的手划破了"
 
     - date: "2026-10-04"
       title: 打视频
       photos:
-        - /images/love/打视频.jpg
-        - /images/love/打视频2.jpg
-        - /images/love/打视频3.jpg
-        - /images/love/打视频4.jpg
+        - img: /images/love/打视频.jpg
+          caption: ""
+        - img: /images/love/打视频2.jpg
+          caption: ""
+        - img: /images/love/打视频3.jpg
+          caption: ""
+        - img: /images/love/打视频4.jpg
+          caption: ""
 
     - date: "2026-10-01"
       title: 星露谷
       photos:
-        - /images/love/星露谷.jpg
-        - /images/love/星露谷2.jpg
-        - /images/love/星露谷3.jpg
+        - img: /images/love/星露谷.jpg
+          caption: ""
+        - img: /images/love/星露谷2.jpg
+          caption: ""
+        - img: /images/love/星露谷3.jpg
+          caption: ""
 
     - date: "2026-09-30"
       title: 合拍
       photos:
-        - /images/love/合拍.jpeg
-        - /images/love/合拍.mp4
+        - img: /images/love/合拍.jpeg
+          caption: ""
+        - img: /images/love/合拍.mp4
+          caption: ""
 
     - date: ""
       title: 社团
       photos:
-        - /images/love/社团.jpg
+        - img: /images/love/社团.jpg
+          caption: ""
 
     - date: ""
       title: 招新
       photos:
-        - /images/love/招新.mp4
-        - /images/love/招新2.jpeg
-        - /images/love/招新时候拍的影子.jpg
+        - img: /images/love/招新.mp4
+          caption: ""
+        - img: /images/love/招新2.jpeg
+          caption: ""
+        - img: /images/love/招新时候拍的影子.jpg
+          caption: ""
 
     - date: ""
       title: 咬我
       photos:
-        - /images/love/咬我.jpg
+        - img: /images/love/咬我.jpg
+          caption: ""
 
     - date: ""
       title: 搞抽象
       photos:
-        - /images/love/搞抽象.mp4
+        - img: /images/love/搞抽象.mp4
+          caption: ""
 
     - date: ""
       title: 正装
       photos:
-        - /images/love/正装.jpg
+        - img: /images/love/正装.jpg
+          caption: ""
 
     - date: ""
       title: 滑雪
       photos:
-        - /images/love/滑雪.jpg
+        - img: /images/love/滑雪.jpg
+          caption: ""
 
     - date: ""
       title: 牵手
       photos:
-        - /images/love/牵手.jpg
-        - /images/love/牵手2.jpg
-        - /images/love/牵手3.jpg
-        - /images/love/牵手4.jpg
+        - img: /images/love/牵手.jpg
+          caption: ""
+        - img: /images/love/牵手2.jpg
+          caption: ""
+        - img: /images/love/牵手3.jpg
+          caption: ""
+        - img: /images/love/牵手4.jpg
+          caption: ""
 
     - date: ""
       title: 穿搭
       photos:
-        - /images/love/穿搭.jpg
+        - img: /images/love/穿搭.jpg
+          caption: ""
 
     - date: ""
       title: 自拍
       photos:
-        - /images/love/自拍.jpg
-        - /images/love/自拍.mp4
-        - /images/love/自拍2.jpg
-        - /images/love/自拍2.mp4
-        - /images/love/自拍3.jpg
-        - /images/love/自拍3.mp4
-        - /images/love/自拍4.mp4
-        - /images/love/自拍5.mp4
-        - /images/love/自拍6.mp4
-        - /images/love/自拍7.mp4
+        - img: /images/love/自拍.jpg
+          caption: ""
+        - img: /images/love/自拍.mp4
+          caption: ""
+        - img: /images/love/自拍2.jpg
+          caption: ""
+        - img: /images/love/自拍2.mp4
+          caption: ""
+        - img: /images/love/自拍3.jpg
+          caption: ""
+        - img: /images/love/自拍3.mp4
+          caption: ""
+        - img: /images/love/自拍4.mp4
+          caption: ""
+        - img: /images/love/自拍5.mp4
+          caption: ""
+        - img: /images/love/自拍6.mp4
+          caption: ""
+        - img: /images/love/自拍7.mp4
+          caption: ""
 
     - date: ""
       title: 蚊子视角
       photos:
-        - /images/love/蚊子视角.jpg
+        - img: /images/love/蚊子视角.jpg
+          caption: ""
 
-  # 图注（可选）：键写文件名（含扩展名），值写想显示在照片下面的一句话
-  # 留空 "" 就什么都不显示；文件名本身永远不会出现在页面上
-  captions:
-    "打视频.jpg": ""
-    "打视频2.jpg": ""
-    "打视频3.jpg": ""
-    "打视频4.jpg": ""
-    "牵手.jpg": ""
-    "牵手2.jpg": ""
-    "牵手3.jpg": ""
-    "牵手4.jpg": ""
-    "穿搭.jpg": ""
-    "自拍.jpg": ""
-    "自拍.mp4": ""
-    "自拍2.jpg": ""
-    "自拍2.mp4": ""
-    "自拍3.mp4": ""
-    "自拍4.mp4": ""
-    "自拍5.mp4": ""
-    "自拍6.mp4": ""
-    "自拍7.mp4": ""
-    "蚊子视角.jpg": ""
-    "偷拍.jpg": ""
-    "偷拍.mp4": ""
-    "偷拍2.jpeg": ""
-    "抖音.jpg": ""
-    "上班.jpg": ""
-    "上班2.jpg": ""
-    "上班3.jpg": ""
-    "上班4.jpg": ""
-    "上班5.jpg": ""
-    "抽象.jpg": ""
-    "特效.jpg": ""
-    "特效2.jpg": ""
-    "特效3.jpg": ""
-    "特效4.jpg": ""
-    "特效5.jpg": ""
-    "特效6.jpg": ""
-    "化妆.jpg": ""
-    "社团.jpg": ""
-    "合拍.jpeg": ""
-    "合拍.mp4": ""
-    "招新.mp4": ""
-    "招新2.jpeg": ""
-    "招新时候拍的影子.jpg": ""
-    "星露谷.jpg": ""
-    "星露谷2.jpg": ""
-    "星露谷3.jpg": ""
-    "铁锅炖.jpg": ""
-    "铁锅炖2.jpg": ""
-    "铁锅炖3.jpg": ""
-    "茉酸奶.jpg": ""
-    "茉酸奶2.jpg": ""
-    "火锅（臭味相投）.jpg": ""
-    "给我做的.jpg": ""
-    "给我做的2.jpg": ""
-    "可爱.jpg": ""
-    "咬我.jpg": ""
-    "手指甲划我.jpg": ""
-    "搞抽象.mp4": ""
-    "正装.jpg": ""
-    "滑雪.jpg": ""
+  # 图注就写在每张照片下面的 caption 里，不再单独维护一份文件名映射表
 
   # 恋爱清单 /love/list/
   # done: true 显示绿色对勾；photo 填写图片地址则点击可展开大图
