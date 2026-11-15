@@ -250,6 +250,30 @@ body.lovepage.lp-home { padding-top: 0; }
 	animation: lp-beat-soft 2.6s ease-in-out infinite;
 }
 
+/* 分隔爱心 = 返回主页入口 */
+
+.lp-divider-heart {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: .35rem;
+	border-radius: 50%;
+	line-height: 0;
+	text-decoration: none;
+	transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+.lp-divider-heart:hover,
+.lp-divider-heart:focus-visible {
+	transform: scale(1.12);
+	background-color: rgba(247, 166, 189, .14);
+	box-shadow: 0 0 0 .35rem rgba(247, 166, 189, .12);
+	outline: none;
+}
+.lp-divider-heart:active {
+	transform: scale(.96);
+}
+
 @keyframes lp-beat-soft {
 	0%, 100% { transform: scale(1); }
 	50%      { transform: scale(1.18); }
