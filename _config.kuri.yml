@@ -250,20 +250,12 @@ love:
   # 没写进任何分组的图，会自动收进末尾「还没分组」那一栏
   album:
     - date: "2026-11-21"
-      title: 偷拍
+      title: 偷拍 / 盖世小鸡 / 绿茶餐厅
       photos:
         - img: /images/love/偷拍（11.21）.jpg
           caption: ""
-
-    - date: "2026-11-21"
-      title: 盖世小鸡
-      photos:
         - img: /images/love/盖世小鸡（11.21）.jpg
           caption: ""
-
-    - date: "2026-11-21"
-      title: 绿茶餐厅
-      photos:
         - img: /images/love/绿茶餐厅（11.21）.jpg
           caption: ""
 
