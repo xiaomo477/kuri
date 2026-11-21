@@ -266,21 +266,17 @@ love:
           caption: "还给了我一个"
 
     - date: "2026-11-13"
-      title: 烤肉
+      title: 烤肉 / 巧克力
       photos:
         - img: /images/love/烤肉（11.13）.jpg
           caption: "吃烤肉"
         - img: /images/love/烤肉店的猫（11.13）.jpg
           caption: "烤肉店的猫"
-
-    - date: "2026-11-13"
-      title: 巧克力
-      photos:
         - img: /images/love/巧克力（11.13）.jpg
           caption: "学校偶遇了巧克力"
 
     - date: "2026-11-09"
-      title: 拼豆
+      title: 拼豆 / 下班 / 自嘲熊
       photos:
         - img: /images/love/拼豆.jpg
           caption: ""
@@ -288,21 +284,13 @@ love:
           caption: "给我的拼豆"
         - img: /images/love/拼豆（11.9）.jpg
           caption: "立体爪刀"
-
-    - date: "2026-11-09"
-      title: 下班
-      photos:
         - img: /images/love/下班（11.9）.jpg
           caption: ""
-
-    - date: "2026-11-09"
-      title: 自嘲熊
-      photos:
         - img: /images/love/买的想要的自嘲熊.jpg
           caption: "买的想要的自嘲熊"
 
     - date: "2026-10-30"
-      title: 铁锅炖
+      title: 铁锅炖 / 茉酸奶
       photos:
         - img: /images/love/铁锅炖.jpg
           caption: "铁锅炖"
@@ -310,10 +298,6 @@ love:
           caption: "铁锅炖"
         - img: /images/love/铁锅炖3.jpg
           caption: "铁锅炖"
-
-    - date: "2026-10-30"
-      title: 茉酸奶
-      photos:
         - img: /images/love/茉酸奶.jpg
           caption: ""
         - img: /images/love/茉酸奶2.jpg
@@ -326,7 +310,7 @@ love:
           caption: ""
 
     - date: "2026-10-25"
-      title: 上班
+      title: 上班 / 抽象
       photos:
         - img: /images/love/上班.jpg
           caption: ""
@@ -338,10 +322,6 @@ love:
           caption: ""
         - img: /images/love/上班5.jpg
           caption: ""
-
-    - date: "2026-10-25"
-      title: 抽象
-      photos:
         - img: /images/love/抽象.jpg
           caption: ""
 
@@ -388,14 +368,10 @@ love:
           caption: ""
 
     - date: "2026-10-06"
-      title: 化妆
+      title: 化妆 / 手指甲划我
       photos:
         - img: /images/love/化妆.jpg
           caption: ""
-
-    - date: "2026-10-06"
-      title: 手指甲划我
-      photos:
         - img: /images/love/手指甲划我.jpg
           caption: "手指甲给我的手划破了"
 
